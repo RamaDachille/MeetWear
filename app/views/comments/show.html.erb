@@ -1,2 +1,9 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<div class="container">
+  <h3>Comments</h3>
+  <div class="comments mt-3">
+    <% @comments.each do |comment| %>
+      <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
+      <p><%= comment.content %></p>
+    <% end %>
+  </div>
+</div>

@@ -10,10 +10,11 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[create index new show] do
     resources :feedbacks, only: %i[create index new show]
-    resources :comments, only: %i[create new show]
+    resources :comments, only: %i[show]
     resources :saved_posts, only: %i[create destroy]
     resources :likes, only: %i[create destroy]
   end
+  resources :comments, only: %i[create new]
 end
 
 # 1. Create

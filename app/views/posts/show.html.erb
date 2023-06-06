@@ -1,1 +1,7 @@
 <h1>Post Show page</h1>
+<p><strong>Name: </strong><%= User.find(@post.user_id).user_name %></p>
+<p><strong>Description: </strong><%= @post.description %></p>
+<p><strong>Category: </strong><%= @post.category %></p>
+<p><strong>Occasion: </strong><%= @post.occasion %></p>
+<p><strong>Brands: </strong><%= @post.brand_tag %></p>
+<p><strong>Created at: </strong><%= time_ago_in_words(@post.created_at) %></p>

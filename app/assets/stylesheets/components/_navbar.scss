@@ -1,12 +1,17 @@
-.navbar-lewagon {
+.navbar-meetwear {
   justify-content: space-between;
-  background: white;
+  background: $body-bg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-meetwear .navbar-navigation {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+// }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .img {
+//   width: 40px;
+// }

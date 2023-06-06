@@ -5,13 +5,18 @@
 // 3. You can override them below!
 
 // General style
-$font-family-lato:       $body-font;
-$headings-font-family:   $headers-font;
+$font-family-lato:       $my-font;
+$headings-font-family:   $my-font;
 $body-bg:                $soft-grey;
 $font-size-base:         1rem;
+$slider-font-color:      $font-grey;
+$font-color:             $main-font-color;
+// font-weight
+// margin
+// transition
 
 // Colors
-$body-color:  $grey;
+$body-color:  $main-font-color;
 $primary:     $blue;
 $success:     $green;
 $info:        $yellow;
@@ -19,7 +24,7 @@ $danger:      $red;
 $warning:     $orange;
 $my-purple:   $purple;
 $my-soft-grey:$soft-grey;
-$my-grey:     $gray;
+$my-grey:     $grey;
 
 // Buttons & inputs' radius
 $border-radius:    2px;

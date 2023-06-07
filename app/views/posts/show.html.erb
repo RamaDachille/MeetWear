@@ -14,8 +14,13 @@
       <p><%= comment.content %></p>
     <% end %>
   </div>
+  <div data-controller="comment">
+    <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i>
+    <div class="d-none" data-comment-target="form">
+      <%= simple_form_for [@post, @comment] do |f| %>
+        <%= f.input :content, label: false %>
+        <%= f.submit "Post"%>
+      <% end %>
+    </div>
 
-  <%= simple_form_for @comment do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
-<% end %>
+  </div>

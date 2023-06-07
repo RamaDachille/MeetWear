@@ -24,12 +24,14 @@ images_ask = ["https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142297/tum
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_27e7d396addc8b3b522213a49adaaf57_f8c6ded3_1280_jkikt7.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_b7dd96bd2ac91f1b590b1d2c38b10eca_6b602512_1280_llwgwo.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_0cef66d837ebf5495a02840ba13aa649_961e6628_1280_dgnpx3.jpg",
+  "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_5c7ec8bde86b60577e60faf102f15b5b_bcb546de_1280_nqqjrq.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_5c7ec8bde86b60577e60faf102f15b5b_bcb546de_1280_nqqjrq.jpg"
   ]
 
   images_share = ["https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142297/tumblr_d1f848c440edcf12e8dc4f7efa36226c_a837fedd_1280_wh2oqj.jpg",
     "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_de26a18d8068fc32223dbf8232bd2a8a_f281a2af_1280_cxfwpo.jpg",
     "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_bd3983c2f635152a637846c0d1fc872b_e697de42_1280_fcbunc.jpg",
+    "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_21387bcd55ed43af230124b3a2a54b25_e14a5a3b_1280_bkzkna.jpg",
     "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_21387bcd55ed43af230124b3a2a54b25_e14a5a3b_1280_bkzkna.jpg",
     "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_af360d1efc0461e4a9638302a4eaaf2d_a24885b0_2048_d7ozx4.jpg",
     "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_27e7d396addc8b3b522213a49adaaf57_f8c6ded3_1280_jkikt7.jpg",
@@ -130,7 +132,10 @@ post_one = Post.new(post_type: "Share",
                     brand_tag: "Nike",
                     size_rating: [1,2,3,4,5].sample,
                     user_id: (1..10).to_a.sample)
-post_one.save!
+                    post_one.save!
+
+                    post = create_pics(images_share[4], post_one.id, post_one)
+                    post.save!
 
 10.times do |i|
   post = Post.new(post_type: "Share",
@@ -145,8 +150,10 @@ post_one.save!
               user: User.all.sample
             )
 
+            post.save!
             final_post = create_pics(images_share[i], post.id, post)
             final_post.save!
+
     8.times do
       comment = Comment.new(content: ["Absolutely slaying it! 🔥", "Obsessed with this look! 😍", "You're a style icon!", "You radiate positivity through your fashion!",
       "Embracing the beautiful soul within!", "Your fashion choices are always on point! 👌", "You know how to turn heads!",
@@ -169,8 +176,10 @@ puts "creating Posts Share"
                               'arket'].sample,
                   user: User.all.sample,
                   size_rating: [1,2,3,4,5].sample)
-                  final_post = create_pics(images_ask[i], post.id, post)
-                  final_post.save!
+
+                  post.save!
+                  post = create_pics(images_ask[i], post.id, post)
+                  post.save!
 
     8.times do
       feedback = Feedback.new(category: ['street style', 'casual wear', 'athleisure', 'vintage', 'business attire', 'beachwear', 'ethnic wear',
@@ -188,7 +197,7 @@ puts "creating Posts Share"
       size_rating: [1,2,3,4,5].sample,
       color_rating: [1,2,3,4,5].sample,
       occasion_rating: [1,2,3,4,5].sample,
-      # overall_style_rating: [1,2,3,4,5].sample,
+      overall_style_rating: [1,2,3,4,5].sample,
       user: User.all.sample,
       post: Post.all.sample)
     feedback.save!
@@ -206,7 +215,7 @@ feedback = Feedback.new(category: "Street Style",
                         size_rating: [1,2,3,4,5].sample,
                         color_rating: [1,2,3,4,5].sample,
                         occasion_rating: [1,2,3,4,5].sample,
-                        # overall_style_rating: [1,2,3,4,5].sample,
+                        overall_style_rating: [1,2,3,4,5].sample,
                         user_id: joanna.id,
                         post_id: post_one.id)
 feedback.save!

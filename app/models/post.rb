@@ -8,5 +8,5 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
-  validates :post_type, :description, :category, :occasion, :photo, presence: true
+  validates :post_type, :description, :category, :occasion, presence: true
 end

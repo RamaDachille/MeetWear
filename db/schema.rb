@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_104225) do
     t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "overall_style_rating"
     t.index ["post_id"], name: "index_feedbacks_on_post_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end

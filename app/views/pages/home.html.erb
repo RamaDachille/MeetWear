@@ -1,3 +1,9 @@
 <h4>home</h4>
 
-<%= render "posts/share_index" %>
+<div id="home" >
+  <div class="cards">
+    <% @posts.each do |post| %>
+  <%= render "posts/share_index", post: post %>
+    <% end %>
+  </div>
+</div>

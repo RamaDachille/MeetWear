@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   has_many :feedbacks, dependent: :destroy
 
   validates :post_type, :description, :category, :occasion, :brand_tag, presence: true
-  validates :size_rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+  # validates :size_rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 end

@@ -1,0 +1,26 @@
+<h1>Post Show page</h1>
+
+<p><strong>Name: </strong><%= User.find(@post.user_id).user_name %></p>
+<p><strong>Description: </strong><%= @post.description %></p>
+<p><strong>Category: </strong><%= @post.category %></p>
+<p><strong>Occasion: </strong><%= @post.occasion %></p>
+<p><strong>Brands: </strong><%= @post.brand_tag %></p>
+<p><strong>Created at: </strong><%= time_ago_in_words(@post.created_at) %></p>
+
+  <h3>Comments</h3>
+  <div class="comments mt-3">
+    <% @comments.each do |comment| %>
+      <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
+      <p><%= comment.content %></p>
+    <% end %>
+  </div>
+  <div data-controller="comment">
+    <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i>
+    <div class="d-none" data-comment-target="form">
+      <%= simple_form_for [@post, @comment] do |f| %>
+        <%= f.input :content, label: false %>
+        <%= f.submit "Post"%>
+      <% end %>
+    </div>
+
+  </div>

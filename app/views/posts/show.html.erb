@@ -1,6 +1,7 @@
 <h1>Post Show page</h1>
 
 <p><strong>Name: </strong><%= User.find(@post.user_id).user_name %></p>
+<%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill if @post.photo.key%>
 <p><strong>Description: </strong><%= @post.description %></p>
 <p><strong>Category: </strong><%= @post.category %></p>
 <p><strong>Occasion: </strong><%= @post.occasion %></p>

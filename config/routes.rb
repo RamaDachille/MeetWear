@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/ask-feed", to: "posts#ask_index"
   get "/share-feed", to: "posts#share_index"
+  get "/profile/:id", to: "pages#profile"
 
   resources :posts, except: [:index]
   resources :followers, only: %i[index create destroy update]
@@ -10,11 +11,10 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[create index new show] do
     resources :feedbacks, only: %i[create index new show]
-    resources :comments, only: %i[show]
+    resources :comments, only: %i[show create new]
     resources :saved_posts, only: %i[create destroy]
     resources :likes, only: %i[create destroy]
   end
-  resources :comments, only: %i[create new]
 end
 
 # 1. Create

@@ -4,14 +4,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  .logo {
+    margin-left: -2px;
+  }
+  .icon-star {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+  }
+  .icon-message {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-left: 10px;
+  }
 }
-
-// .navbar-meetwear .navbar-navigation {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-// }
-
-// .navbar-lewagon .img {
-//   width: 40px;
-// }

@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @posts = Post.where(post_type: "Share")
   end
+
+  def profile
+    @posts = Post.where(user_id: params[:id])
+  end
 end

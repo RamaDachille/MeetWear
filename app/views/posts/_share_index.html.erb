@@ -1,0 +1,8 @@
+<h1>Share Index</h1>
+<% @posts.each do |post| %>
+  <p><%= User.find(post.user_id).user_name %></p>
+  <p><%= post.description %></p>
+  <p><%= post.category %></p>
+  <p><%= post.occasion %></p>
+  <p><%= time_ago_in_words(post.created_at) %></p>
+<% end %>

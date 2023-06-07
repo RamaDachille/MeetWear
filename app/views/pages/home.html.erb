@@ -1,8 +1,12 @@
 <%= render "shared/navbar" %>
   <div class="main-container">
       <%= render "shared/slider" %>
-      <h4>home</h4>
-      <%= render "posts/share_index" %>
+      <div id="home" >
+         <div class="cards">
+           <% @posts.each do |post| %>
+             <%= render "posts/share_index", post: post %>
+           <% end %>
+          </div>
+      </div>
   </div>
 <%= render "shared/footer" %>
-

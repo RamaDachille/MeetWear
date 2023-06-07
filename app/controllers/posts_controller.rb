@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.all
+    @feedback = Feedback.new
+    @comments = Comment.where(post_id: @post.id)
+    @feedback = Feedback.where(post_id: @post.id)
   end
 
   def new
@@ -30,6 +32,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_type, :description, :category, :gender, :occasion, :brand_tag, :size_rating)
+    params.require(:post).permit(:post_type, :description, :category, :gender, :occasion, :brand_tag, :size_rating, :photo)
   end
 end

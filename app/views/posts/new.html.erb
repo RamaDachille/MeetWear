@@ -1,6 +1,37 @@
 <h1>New post page</h1>
 
-<%= simple_form_for @comment do |f| %>
-  <%= f.input :content %>
+<%= simple_form_for @post do |f| %>
+  <%= f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
+  <%= f.input :description, input_html: { maxlength: 300 } %>
+  <%= f.label :occasion, "Occasion"%>
+  <%= f.select :occasion, options_for_select([
+    ["Party", "Party"],
+    ["Business Meeting", "Business Meeting"],
+    ["Casual Outing", "Casual Outing"],
+    ["Wedding", "Wedding"],
+    ["Formal Event", "Formal Event"],
+    ["Workout", "Workout"],
+    ["Date Night", "Date Night"],
+    ["Vacation", "Vacation"],
+    ["Interview", "Interview"]
+  ]) %>
+  <%= f.label :category, "Outfit Category"%>
+  <%= f.select :category, options_for_select([
+    ["Casual Wear", "Casual Wear"],
+    ["Formal Wear", "Formal Wear"],
+    ["Street Style", "Street Style"],
+    ["Athleisure", "Athleisure"],
+    ["Vintage", "Vintage"],
+    ["Bohemian", "Bohemian"],
+    ["Business Attire", "Business Attire"],
+    ["Beachwear", "Beachwear"],
+    ["Ethnic Wear", "Ethnic Wear"],
+    ["Glamorous", "Glamorous"],
+    ["Smart Casual", "Smart Casual"],
+    ["Festival", "Festival"]
+  ]) %>
+  <%= f.input :brand_tag %>
+  <%= f.input :size_rating, as: :boolean, label: "Allow feedback on fit" %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>

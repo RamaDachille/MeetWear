@@ -1,1 +1,9 @@
-// Specific CSS for your home-page
+#home {
+  .cards {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin: 0 -1rem;
+  }
+}

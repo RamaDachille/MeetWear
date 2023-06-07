@@ -3,37 +3,44 @@
   display: flex;
   padding: 20px;
   position: relative;
+
   .icon-home {
     position: absolute;
     left: 50px;
-    top: 75px;
+    top: 95px;
     font-size: 28px;
   }
+
   .icon-profile{
     position: absolute;
     right: 50px;
-    top: 75px;
+    top: 95px;
     font-size: 28px;
   }
+
   .wavy-footer{
     position: absolute;
-    bottom: -14px;
-
-    svg {
-      width: 100%;
-    }
+    bottom: -120px;
+    // svg {
+    //   width: 100%;
+    // }
   }
 
-.rounded-button {
-  text-decoration: none;
-  font-size: 30px;
-  display: flex;
-  width: 80px;
-  height: 80px;
-  background-color: $my-purple;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
+  .rounded-button {
+    text-decoration: none;
+    font-size: 30px;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    background-color: $my-purple;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .another-rounded-button {
+    position: absolute;
+    top: 43px;
+  }
 }

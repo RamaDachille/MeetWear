@@ -1,0 +1,108 @@
+#cardv1 {
+
+    .share-card {
+      width: 350px;
+      height: 650px;
+      border-radius: 12px;
+      // border: 1px solid black;
+      border: #FFFFFF;
+      margin: 10px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+
+  .grad-and-icons {
+    position: relative;
+  }
+
+
+  .gradient{
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0.811) 3%, rgba(0, 0, 0, 0.579) 7%, rgba(53,53,53,0.10410101540616246) 16%, rgba(202,202,202,0.1461178221288515) 69%, rgba(236,236,236,0.1012998949579832) 85%, rgba(255,255,255,0) 100%);
+    z-index: 2;
+    border-radius: 12px;
+  }
+
+  .icons-for-grad{
+    display: flex;
+    justify-content: space-around;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 350px;
+    // padding-bottom: 5px;
+    color:#FFFFFF;
+
+    .icon{
+      align-self: center;
+    }
+
+    .icon-text{
+      padding-top: 6px;
+      align-self: center;
+      font-size: 11px;
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile-pic {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 281px;
+  top: -27px;
+  border-radius: 50px;
+  z-index: 2;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+.username-top {
+border-radius: 4px;
+background-color: #FFFFFF;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+position: absolute;
+width: 116px;
+height: 22px;
+left: 169px;
+top: -10px;
+z-index: 1;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+p{
+  font-size: 12px;
+  font-family: $my-font;
+  margin: 0;
+}
+}
+
+
+    .card-img {
+      width: 350px;
+      height: 450px;
+      border-radius: 12px;
+      object-fit: cover;
+      background-position: center;
+      z-index: -1;
+      position: relative;
+    }
+
+    .card-body {
+      line-height: 20px;
+      font-family: $my-font;
+      padding: 1rem 0;
+    }
+
+    .card-text {
+      margin-left: 10px;
+      font-family: $my-font;
+    }
+  }

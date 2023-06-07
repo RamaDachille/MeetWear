@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/ask-feed", to: "posts#ask_index"
   get "/share-feed", to: "posts#share_index"
+  get "/profile/:id", to: "pages#profile"
 
   resources :posts, except: [:index]
   resources :followers, only: %i[index create destroy update]

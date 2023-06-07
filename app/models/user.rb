@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_favoritor
+
   has_many :followers, through: :user_followers
   has_many :followed, through: :user_followers
 

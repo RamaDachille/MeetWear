@@ -1,6 +1,7 @@
 <h1>Ask Index</h1>
 <% @posts.each do |post| %>
   <p><%= User.find(post.user_id).user_name %></p>
+  <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
   <p><%= post.description %></p>
   <p><%= post.category %></p>
   <p><%= post.occasion %></p>

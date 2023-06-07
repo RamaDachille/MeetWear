@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @feedback = Feedback.new
     @comments = Comment.where(post_id: @post.id)
-    @feedback = Feedback.where(post_id: @post.id)
+    @feedbacks = Feedback.where(post_id: @post.id)
   end
 
   def new

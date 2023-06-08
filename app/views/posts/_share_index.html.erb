@@ -6,10 +6,12 @@
 
           <div class="icon-container">
             <div class="icon">
+              <%= link_to post_comments_path(post) do %>
               <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-1">100</p>
+              <p class="i-1"><%= post.comments.count  %></p>
             </div>
           </div>
 

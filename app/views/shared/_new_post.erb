@@ -5,44 +5,26 @@
     <p style="color: black">Create post</p>
 </div>
 
-<div class="card add-image-card">
-  <%= link_to "", class: "icon-add-image" do %>
-    <i class="fa-solid fa-plus"></i>
-  <% end %>
-</div>
-
-<div class="container">
-  <div class="tabs">
-    <input type="radio" id="radio-1" name="tabs" checked />
-    <label class="tab" for="radio-1">Share your style</label>
-    <input type="radio" id="radio-2" name="tabs" />
-    <label class="tab" for="radio-2">Ask for feedback</label>
-    <span class="glider"></span>
-  </div>
-</div>
-
-
-
 
 <div>
   <%= simple_form_for @post do |f| %>
-      <div class="add-image-card">
-        <%= f.input :photo, as: :file %>
-      </div>
+    <%= f.input :photo, as: :file, input_html: { hidden: true }, wrapper_html: {class: "add-image-card"},label: "+" , label_html: { class: 'plus' }%>
     <%= f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
+
+
     <%= f.input :description, input_html: { maxlength: 300 } %>
     <%= f.label :occasion, "Occasion"%>
-    <%= f.select :occasion, options_for_select([
-      ["Party", "Party"],
-      ["Business Meeting", "Business Meeting"],
-      ["Casual Outing", "Casual Outing"],
-      ["Wedding", "Wedding"],
-      ["Formal Event", "Formal Event"],
-      ["Workout", "Workout"],
-      ["Date Night", "Date Night"],
-      ["Vacation", "Vacation"],
-      ["Interview", "Interview"]
-    ]) %>
+      <%= f.select :occasion, options_for_select([
+        ["Party", "Party"],
+        ["Business Meeting", "Business Meeting"],
+        ["Casual Outing", "Casual Outing"],
+        ["Wedding", "Wedding"],
+        ["Formal Event", "Formal Event"],
+        ["Workout", "Workout"],
+        ["Date Night", "Date Night"],
+        ["Vacation", "Vacation"],
+        ["Interview", "Interview"]
+      ]) %>
     <%= f.label :category, "Outfit Category"%>
     <%= f.select :category, options_for_select([
       ["Casual Wear", "Casual Wear"],
@@ -62,4 +44,14 @@
     <%= f.input :size_rating, as: :boolean, label: "Allow feedback on fit" %>
     <%= f.button :submit %>
   <% end %>
+</div>
+
+<div class="container">
+  <div class="tabs">
+    <input type="radio" id="radio-1" name="tabs" checked />
+    <label class="tab" for="radio-1">Share your style</label>
+    <input type="radio" id="radio-2" name="tabs" />
+    <label class="tab" for="radio-2">Ask for feedback</label>
+    <span class="glider"></span>
+  </div>
 </div>

@@ -1,0 +1,177 @@
+#cardv2 {
+
+  .share-card {
+    width: 360px;
+    min-height: 640px;
+    border-radius: 12px;
+    // border: 1px solid black;
+    border: #FFFFFF;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    margin-bottom: 35px;
+    padding-bottom: 3px;
+  }
+
+.grad-and-icons {
+  position: relative;
+}
+
+
+.gradient{
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0.811) 3%, rgba(0, 0, 0, 0.579) 7%, rgba(53,53,53,0.10410101540616246) 16%, rgba(202,202,202,0.1461178221288515) 69%, rgba(236,236,236,0.1012998949579832) 85%, rgba(255,255,255,0) 100%);
+  z-index: 2;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.icons-for-grad{
+  display: flex;
+  justify-content: space-around;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 404px;
+  // padding-bottom: 5px;
+  color:#FFFFFF;
+
+  .icon{
+    align-self: center;
+  }
+
+  .icon-text{
+    padding-top: 6px;
+    align-self: center;
+    font-size: 11px;
+  }
+}
+
+.i-1 {
+padding-right: 3px;
+}
+
+.i-2 {
+padding-right: 1px;
+}
+
+
+.i-3 {
+padding-right: 1px;
+}
+
+
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-pic {
+position: absolute;
+width: 60px;
+height: 60px;
+left: 289px;
+top: -27px;
+border-radius: 50px;
+z-index: 2;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.username-top {
+border-radius: 4px;
+background-color: #FFFFFF;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+position: absolute;
+width: 116px;
+height: 22px;
+left: 177px;
+top: -10px;
+z-index: 1;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+p{
+font-size: 12px;
+font-family: $my-font;
+margin: 0;
+margin-bottom: 2px;
+color: black
+}
+}
+
+
+  .card-img {
+    width: 360px;
+    height: 450px;
+    border-radius: 12px 12px 0px 0px;
+    object-fit: cover;
+    background-position: center;
+    z-index: -1;
+    position: relative;
+  }
+
+  .card-body {
+    line-height: 20px;
+    font-family: $my-font;
+    padding: 1rem 0;
+  }
+
+  .cutoff {
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .expand-btn {
+    appearance: none;
+  }
+
+  .expand-btn::before {
+    content: "more";
+  }
+
+  .expand-btn:checked::before {
+    content: "more";
+  }
+
+
+  .cutoff:has(+ .expand-btn:checked) {
+    max-height: none;
+  }
+
+
+  .card-text {
+    margin-left: 10px;
+    font-family: $font-family-lato;
+    margin-top: 11px;
+    margin-right: 10px;
+
+
+    p{
+      margin-bottom: 8px;
+    }
+
+
+  .top-t {
+  font-size: 13px;
+  color: black;
+  }
+
+  .medium-t {
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+}
+
+  }
+
+  .low-t {
+    font-size: 11px;
+    color: rgb(178, 177, 177);
+  }
+}

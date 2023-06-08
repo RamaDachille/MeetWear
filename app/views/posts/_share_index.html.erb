@@ -9,7 +9,7 @@
               <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
             </div>
             <div class="icon-text">
-              <p>100</p>
+              <p class="i-1">100</p>
             </div>
           </div>
 
@@ -18,7 +18,7 @@
               <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
             </div>
             <div class="icon-text">
-              <p>100</p>
+              <p class="i-2">100</p>
             </div>
           </div>
 
@@ -27,31 +27,36 @@
               <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
             </div>
             <div class="icon-text">
-              <p>100</p>
+              <p class="i-3">100</p>
             </div>
           </div>
         </div>
 
         <div>
-          <%= image_tag 'sky.png', class: "profile-pic" %>
+          <%= image_tag 'avatar.png', class: "profile-pic" %>
         </div>
 
         <div class="username-top">
-        <p>Username_user</p>
+        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
         </div>
 
         <div>
-          <%= image_tag 'fashion.jpeg', class: "card-img" %>
+          <%= cl_image_tag post.photo.key, class:"card-img"%>
         </div>
       </div>
     </div>
     <div class="card-text">
+    <div class="top-t">
       <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+      </div>
+      <div class="medium-t">
       <p><%= post.description %></p>
-      <p><%= post.category %></p>
-      <p><%= post.occasion %></p>
+      <p><strong>Category: </strong><%= post.category %></p>
+      <p><strong>Occasion: </strong><%= post.occasion %></p>
+      </div>
+      <div class="low-t">
       <p><%= time_ago_in_words(post.created_at) %></p>
+      </div>
     </div>
   </div>
 </main>
-

@@ -6,3 +6,5 @@
   <p><%= post.occasion %></p>
   <p><%= time_ago_in_words(post.created_at) %></p>
 <% end %>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>

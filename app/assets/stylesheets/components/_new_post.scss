@@ -1,10 +1,13 @@
 .cancel-card {
   display: flex;
+  align-items: center;
 
   .icon-cancel {
     color: black;
     text-decoration: none;
     margin-right: 10px;
+    position: relative;
+  top: -7px;
   }
 }
 
@@ -19,10 +22,11 @@
   margin-bottom: 20px;
   background-color: white;
 
+
   .plus {
-    color: #878787;
+    color: $my-purple;
     text-decoration: none;
-    font-size: 50px;
+    font-size: 70px;
   }
 }
 
@@ -30,7 +34,6 @@
   height: 100px;
   border-radius: 3%;
   display: flex;
-  border: white;
   background-color: white;
   margin-bottom: 10px;
     &:focus {
@@ -39,6 +42,47 @@
       }
   }
 
-.post_occasion {
-  
+
+
+#post_post_type {
+  width: 100%;
+  margin-bottom: 1rem;
+    &:focus {
+      box-shadow: none;
+    }
+}
+
+.drop-down {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem !important;
+
+  select {
+    width: 100%;
+  }
+}
+
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+.stupid-box {
+  margin-right: 10px;
+  .form-check {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-left: 10px;
+    }
+  }
+}
+
+.create-post-button {
+  width: 100% !important;
+  background: $my-purple !important;
+  color: white !important;
+  border-radius: 5px !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
 }

@@ -1,4 +1,4 @@
-<main id="cardv1" data-controller="accordion">
+<main id="cardv2">
   <div class="share-card">
     <div class="gradient">
       <div class="grad-and-icons">
@@ -10,15 +10,6 @@
             </div>
             <div class="icon-text">
               <p class="i-1">100</p>
-            </div>
-          </div>
-
-          <div class="icon-container">
-            <div class="icon">
-              <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
-            </div>
-            <div class="icon-text">
-              <p class="i-2">100</p>
             </div>
           </div>
 
@@ -49,20 +40,16 @@
         <div class="top-t">
         <p><strong><%= User.find(post.user_id).user_name %></strong></p>
         </div>
+            <div class="cutoff">
               <div class="medium-t">
-                <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span><span data-accordion-target="hiddenText" class="d-none"><%= post.description[50...post.description.length]%></span> </p>
-
-               <p class="d-none" data-accordion-target="hiddenTag"><strong>Category: </strong><%= post.category %> </p>
-               <p class="d-none" data-accordion-target="hiddenTag"><strong>Occasion: </strong><%= post.occasion %> </p>
-
+                <p><strong>Occasion: </strong><%= post.occasion %></p>
               </div>
-
-
+              </div>
+              <input class="expand-btn" type="checkbox">
                 <div class="low-t">
                  <p><%= time_ago_in_words(post.created_at) %></p>
                 </div>
+
       </div>
-
-
   </div>
 </main>

@@ -1,0 +1,27 @@
+.cancel-card {
+  display: flex;
+
+  .icon-cancel {
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+}
+
+
+.add-image-card {
+  height: 300px;
+  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  .icon-add-image {
+    color: #878787;
+    text-decoration: none;
+    font-size: 50px;
+  }
+}

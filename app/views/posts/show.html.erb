@@ -8,22 +8,86 @@
 <p><strong>Brands: </strong><%= @post.brand_tag %></p>
 <p><strong>Created at: </strong><%= time_ago_in_words(@post.created_at) %></p>
 
-  <h3>Comments</h3>
-  <div class="comments mt-3">
-    <% @comments.each do |comment| %>
-      <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
-      <p><%= comment.content %></p>
-    <% end %>
-  </div>
-  <div data-controller="comment">
-    <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i>
-    <div class="d-none" data-comment-target="form">
-      <%= simple_form_for [@post, @comment] do |f| %>
-        <%= f.input :content, label: false %>
-        <%= f.submit "Post"%>
-      <% end %>
+<% if @post.post_type == "Ask" %>
+  <div class= "ask">
+
+<% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
+    <div class= "feedback-form <%= !no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Give a feedback</strong></h4>
+      <div>
+        <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
+          <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
+          <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
+          <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
+          <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
+          <%= f.input :feedback,  label: "Feedback" %>
+          <%= f.submit "Send your feedback" %>
+        <% end %>
+      </div>
     </div>
 
-    <h3>Feedback</h3>
+    <div class= "card-feedback-average mt-3 <%= no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Feedback average</strong></h4>
+      <p><%= @post.feedbacks.count  %> feedbacks</p>
 
+      <div class="occasion">
+        <p><strong>Occasion: </strong></p>
+        <p><%= @post.feedbacks.average(:occasion_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+      </div>
+
+      <div class="color">
+        <p><strong>Color: </strong></p>
+        <p><%= @post.feedbacks.average(:color_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+      </div>
+
+      <div class="size">
+        <p><strong>Size: </strong></p>
+        <p><%= @post.feedbacks.average(:size_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+      </div>
+
+      <div class="overall">
+        <p><strong>Overall style: </strong></p>
+        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+      </div>
+
+
+    </div>
+
+    <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Feedbacks</strong></h4>
+      <% @feedbacks.each do |feedback| %>
+        <p><strong><%= User.find(feedback.user_id).user_name%></strong> <%= time_ago_in_words(feedback.created_at) %></p>
+        <p><strong>Occasion: </strong> <%= feedback.occasion_rating %></p>
+        <p><strong>Size: </strong><%= feedback.size_rating %></p>
+        <p><strong>Color: </strong><%= feedback.color_rating %></p>
+        <p><strong>Overall: </strong><%= feedback.overall_style_rating %></p>
+        <p><strong>Feedback: </strong><%= feedback.feedback %></p>
+      <% end %>
+    </div>
   </div>
+
+<% else %>
+
+<h1>share</h1>
+  <div class= "share">
+    <div class= "card-comments mt-3">
+      <h4>Comments</h4>
+      <div class="comments mt-3">
+        <% @comments.each do |comment| %>
+          <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
+          <p><%= comment.content %></p>
+        <% end %>
+      </div>
+
+      <div data-controller="comment">
+        <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i>
+        <div class="d-none" data-comment-target="form">
+          <%= simple_form_for [@post, @comment] do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.submit "Post"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

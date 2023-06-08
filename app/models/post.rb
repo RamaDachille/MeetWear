@@ -3,6 +3,8 @@ class Post < ApplicationRecord
 
   has_one_attached :photo
 
+  acts_as_favoritor
+
   has_many :likes, dependent: :destroy
   has_many :saved_posts, dependent: :destroy
   has_many :comments, dependent: :destroy

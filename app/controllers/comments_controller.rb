@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save!
-      redirect_to post_path(@post)
+      redirect_to post_comments_path(@post)
     else
       render :new, status: :unprocessable_entity
     end

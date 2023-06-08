@@ -1,10 +1,17 @@
 <div class= "share">
     <div class= "card-comments mt-3">
-      <h3>Comments</h3>
+     <%= link_to  root_path(anchor: "post-#{@post.id}"), class: "leftnav__link" do %>
+
+      <h3>x</h3>
+    <% end %>
+    <h3>Comments</h3>
       <div class="comments mt-3">
         <% @comments.each do |comment| %>
+
+          <div id="comment<%= comment.id %>">
           <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
           <p><%= comment.content %></p>
+          </div>
         <% end %>
       </div>
 
@@ -17,6 +24,8 @@
           <% end %>
         </div>
       </div>
+
+
 
        <%# <div data-controller="comment">
         <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>

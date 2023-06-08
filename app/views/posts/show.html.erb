@@ -49,8 +49,6 @@
         <p><strong>Overall style: </strong></p>
         <p><%= @post.feedbacks.average(:overall_style_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
       </div>
-
-
     </div>
 
     <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
@@ -67,27 +65,6 @@
   </div>
 
 <% else %>
-
-<h1>share</h1>
-  <div class= "share">
-    <div class= "card-comments mt-3">
-      <h4>Comments</h4>
-      <div class="comments mt-3">
-        <% @comments.each do |comment| %>
-          <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
-          <p><%= comment.content %></p>
-        <% end %>
-      </div>
-
-      <div data-controller="comment">
-        <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i>
-        <div class="d-none" data-comment-target="form">
-          <%= simple_form_for [@post, @comment] do |f| %>
-            <%= f.input :content, label: false %>
-            <%= f.submit "Post"%>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class= "share d-none">
   </div>
 <% end %>

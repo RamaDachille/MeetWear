@@ -1,11 +1,52 @@
+<%#
 <div class="container">
-	<div class="tabs">
-		<input type="radio" id="radio-1" name="tabs" checked />
-		<label class="tab" for="radio-1">Share</label>
-		<input type="radio" id="radio-2" name="tabs" />
-		<label class="tab" for="radio-2">Ask</label>
-		<input type="radio" id="radio-3" name="tabs" />
-		<label class="tab" for="radio-3">Dupe</label>
-		<span class="glider"></span>
-	</div>
-</div>
+  <div class="tabs">
+    <input type="radio" id="radio-1" name="tabs" />
+    <label class="tab" for="radio-1">Share</label>
+    <input type="radio" id="radio-2" name="tabs" ckecked/>
+    <label class="tab" for="radio-2">Ask</label>
+    <span class="glider"></span>
+  </div>
+</div> %>
+<%# <%= 'checked' if @current_action == 'ask_index' %>
+
+<% if @current_action == 'ask_index' %>
+  <div class="container">
+    <div class="tabs">
+      <%= link_to root_path do %>
+        <input type="radio" id="radio-1" name="tabs" />
+      <% end %>
+      <label class="tab" for="radio-1">Share</label>
+      <%= link_to ask_feed_path do %>
+        <input type="radio" id="radio-2" name="tabs" checked/>
+      <% end %>
+      <label class="tab ask-text" for="radio-2">Ask</label>
+      <input type="radio" id="radio-3" name="tabs" />
+      <label class="tab" for="radio-3">Dupe</label>
+      <span class="glider ask-glider"></span>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="tabs">
+      <%= link_to root_path do %>
+        <input type="radio" id="radio-1" name="tabs" checked />
+      <% end %>
+      <label class="tab share-text" for="radio-1">Share</label>
+      <%= link_to ask_feed_path do %>
+        <input type="radio" id="radio-2" name="tabs" />
+      <% end %>
+      <label class="tab" for="radio-2">Ask</label>
+      <input type="radio" id="radio-3" name="tabs" />
+      <label class="tab" for="radio-3">Dupe</label>
+      <span class="glider share-glider"></span>
+    </div>
+  </div>
+<% end %>
+
+<%# <div class="container">
+  <div class="tabs">
+    <%= active_link_to 'Share', root_path, class_active: @current_action == 'home' ? 'enabled' : nil, class: 'radio-1' %>
+    <%# <%= active_link_to 'Ask', ask_feed_path, class_active: @current_action == 'ask_index' ? 'enabled' : nil, class: 'radio-2' %>
+  <%# </div>
+</div> %>

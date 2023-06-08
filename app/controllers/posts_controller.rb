@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def share_index
     @posts = Post.where(post_type: "Share")
+    raise
   end
 
   def show

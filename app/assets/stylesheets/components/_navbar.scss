@@ -4,10 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   .logo {
-    margin-left: -2px;
+    margin-left: -10px;
+    margin-top: 10px;
   }
+
+  .navbar-navigation {
+
+  }
+
   .icon-star {
     text-decoration: none;
     color: black;
@@ -22,4 +27,5 @@
   .icon-star::before {
     content: "" !important;
   }
+
 }

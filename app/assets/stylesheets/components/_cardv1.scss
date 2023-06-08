@@ -2,7 +2,7 @@
 
     .share-card {
       width: 360px;
-      min-height: 640px;
+      // height: 640px;
       border-radius: 12px;
       // border: 1px solid black;
       border: #FFFFFF;
@@ -120,15 +120,25 @@ p{
       padding: 1rem 0;
     }
 
+    .more {
+      color: #6e6e6e;
+    }
+
     .card-text {
       margin-left: 10px;
       font-family: $font-family-lato;
       margin-top: 11px;
       margin-right: 10px;
 
+
+      p{
+        margin-bottom: 16px;
+      }
+
+
     .top-t {
     font-size: 13px;
-    color: black
+    color: black;
     }
 
     .medium-t {
@@ -142,4 +152,27 @@ p{
       font-size: 11px;
       color: rgb(178, 177, 177);
     }
-  }
+}
+
+.accordion {
+  background-color: #f5f5f5;
+  color: #444;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: transparent;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  background-color: transparent;
+  display: none;
+  overflow: hidden;
+}

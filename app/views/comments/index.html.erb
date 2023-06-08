@@ -1,0 +1,31 @@
+<div class= "share">
+    <div class= "card-comments mt-3">
+      <h3>Comments</h3>
+      <div class="comments mt-3">
+        <% @comments.each do |comment| %>
+          <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
+          <p><%= comment.content %></p>
+        <% end %>
+      </div>
+
+      <div class="comment">
+        <p class=""><strong>Add a comment <i class="fa-regular fa-comment"></i></strong></p>
+        <div class="">
+          <%= simple_form_for [@post, @comment] do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.submit "Post"%>
+          <% end %>
+        </div>
+      </div>
+
+       <%# <div data-controller="comment">
+        <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>
+        <div class="d-none" data-comment-target="form"> %>
+          <%#= simple_form_for [@post, @comment] do |f| %>
+            <%#= f.input :content, label: false %>
+            <%#= f.submit "Post"%>
+          <%# end %>
+        <%# </div>
+      </div> %>
+    </div>
+  </div>

@@ -8,7 +8,6 @@
   }
 }
 
-
 .add-image-card {
   height: 300px;
   border-radius: 3%;
@@ -18,10 +17,28 @@
   border: white;
   margin-top: 10px;
   margin-bottom: 20px;
+  background-color: white;
 
-  .icon-add-image {
+  .plus {
     color: #878787;
     text-decoration: none;
     font-size: 50px;
   }
+}
+
+.form-control {
+  height: 100px;
+  border-radius: 3%;
+  display: flex;
+  border: white;
+  background-color: white;
+  margin-bottom: 10px;
+    &:focus {
+        background-color: white;
+        box-shadow: none;
+      }
+  }
+
+.post_occasion {
+  
 }

@@ -1,0 +1,55 @@
+<main id="cardv2">
+  <div class="share-card">
+    <div class="gradient">
+      <div class="grad-and-icons">
+        <div class="icons-for-grad">
+
+          <div class="icon-container">
+            <div class="icon">
+              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+            </div>
+            <div class="icon-text">
+              <p class="i-1">100</p>
+            </div>
+          </div>
+
+          <div class="icon-container">
+            <div class="icon">
+              <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+            </div>
+            <div class="icon-text">
+              <p class="i-3">100</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <%= image_tag 'avatar.png', class: "profile-pic" %>
+        </div>
+
+        <div class="username-top">
+        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+        </div>
+
+        <div>
+          <%= cl_image_tag post.photo.key, class:"card-img"%>
+        </div>
+      </div>
+    </div>
+      <div class="card-text">
+        <div class="top-t">
+        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+        </div>
+            <div class="cutoff">
+              <div class="medium-t">
+                <p><strong>Occasion: </strong><%= post.occasion %></p>
+              </div>
+              </div>
+              <input class="expand-btn" type="checkbox">
+                <div class="low-t">
+                 <p><%= time_ago_in_words(post.created_at) %></p>
+                </div>
+
+      </div>
+  </div>
+</main>

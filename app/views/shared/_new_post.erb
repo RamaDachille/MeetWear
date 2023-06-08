@@ -26,6 +26,9 @@
 
 <div>
   <%= simple_form_for @post do |f| %>
+      <div class="add-image-card">
+        <%= f.input :photo, as: :file %>
+      </div>
     <%= f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
     <%= f.input :description, input_html: { maxlength: 300 } %>
     <%= f.label :occasion, "Occasion"%>
@@ -57,7 +60,6 @@
     ]) %>
     <%= f.input :brand_tag %>
     <%= f.input :size_rating, as: :boolean, label: "Allow feedback on fit" %>
-    <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
   <% end %>
 </div>

@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: :toggle_favorite
+  def toggle_favorite
+    @post = Post.find_by(id: params[:id])
+    current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
+  end
+
   def ask_index
     @posts = Post.where(post_type: "Ask")
   end

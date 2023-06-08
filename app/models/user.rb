@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :followers, through: :user_followers
   has_many :followed, through: :user_followers
+  has_one_attached :photo
 
   has_many :followers, dependent: :destroy
   has_many :followed, dependent: :destroy

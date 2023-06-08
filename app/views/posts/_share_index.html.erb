@@ -15,7 +15,14 @@
 
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
+              <%= link_to post_likes_path(post), data:{turbo_method: :post} do %>
+              <% if Like.where(post_id: post).empty? %>
+                   <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
+                   <% else %>
+                   <i class="fa-solid fa-star"></i>
+              <% end %>
+
+                <% end %>
             </div>
             <div class="icon-text">
               <p>100</p>
@@ -24,7 +31,15 @@
 
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+            <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
+              <% if SavedPost.where(post_id: post).empty? %>
+                   <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                   <% else %>
+                   <i class="fa-solid fa-bookmark"></i>
+              <% end %>
+
+                <% end %>
+
             </div>
             <div class="icon-text">
               <p>100</p>
@@ -41,7 +56,7 @@
         </div>
 
         <div>
-          <%= image_tag 'fashion.jpeg', class: "card-img" %>
+          <%= cl_image_tag post.photo.key, class: "card-img" %>
         </div>
       </div>
     </div>
@@ -54,4 +69,3 @@
     </div>
   </div>
 </main>
-

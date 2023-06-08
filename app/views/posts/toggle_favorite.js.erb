@@ -1,0 +1,7 @@
+<%= link_to "like", toggle_favorite_post_path(post), remote: true, method: :post %>
+var postId = '<%= @post.id%>'
+function toggleLikeButton(postId, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${postId}']`)
+  likeButton.classList.toggle('red');
+}
+toggleLikeButton(postId);

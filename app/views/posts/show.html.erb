@@ -11,8 +11,9 @@
 <% if @post.post_type == "Ask" %>
   <div class= "ask">
 
-    <div class= "feedback-form">
-      <i class="fa-regular fa-comment-dots"></i>
+<% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
+    <div class= "feedback-form <%= !no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Give a feedback</strong></h4>
       <div>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
           <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
@@ -25,8 +26,8 @@
       </div>
     </div>
 
-    <div class= "card-feedback-average mt-3">
-      <h4>Feedback average </h4>
+    <div class= "card-feedback-average mt-3 <%= no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Feedback average</strong></h4>
       <p><%= @post.feedbacks.count  %> feedbacks</p>
 
       <div class="occasion">
@@ -52,8 +53,8 @@
 
     </div>
 
-    <div class= "card-feedback">
-      <h3>Feedback</h3>
+    <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
+      <h4><strong>Feedbacks</strong></h4>
       <% @feedbacks.each do |feedback| %>
         <p><strong><%= User.find(feedback.user_id).user_name%></strong> <%= time_ago_in_words(feedback.created_at) %></p>
         <p><strong>Occasion: </strong> <%= feedback.occasion_rating %></p>
@@ -64,11 +65,13 @@
       <% end %>
     </div>
   </div>
+
 <% else %>
+
 <h1>share</h1>
   <div class= "share">
     <div class= "card-comments mt-3">
-      <h3>Comments</h3>
+      <h4>Comments</h4>
       <div class="comments mt-3">
         <% @comments.each do |comment| %>
           <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>

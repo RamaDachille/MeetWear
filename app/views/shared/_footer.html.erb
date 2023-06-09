@@ -22,8 +22,14 @@
     </div>
 
     <div class="another-rounded-button">
-      <%= link_to new_post_path, class: "rounded-button" do %>
-        <i class="fa-solid fa-plus"></i>
+      <% if user_signed_in? %>
+        <%= link_to new_post_path, class: "rounded-button" do %>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "rounded-button" do %>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
       <% end %>
     </div>
 

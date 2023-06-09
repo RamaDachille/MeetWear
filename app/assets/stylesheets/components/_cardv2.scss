@@ -31,30 +31,29 @@
   border-radius: 12px 12px 0px 0px;
 }
 
+.round-button {
+  position: absolute;
+  border-radius: 20px;
+  background-color: #9B2DD8;
+  color: white;
+  font-size: 13px;
+  padding: 8px 25px;
+  border: none;
+  right: 225px;
+  bottom: 18px;
+}
+
 .icons-for-grad{
   display: flex;
   justify-content: space-around;
   object-fit: contain;
   position: absolute;
   bottom: 0;
-  left: 50%;
   transform: translate(-50%);
-  width: 304px;
+  width: 100px;
   // padding-bottom: 5px;
   color:#FFFFFF;
-
-
-  .round-button {
-    border-radius: 20px;
-    background-color: #9B2DD8;
-    color: white;
-    font-size: 16px;
-    padding: 5px 5px;
-    border: none;
-  }
-
-
-
+  left: 300px;
 
   }
 

@@ -49,7 +49,8 @@
         </div>
 
         <div>
-          <%= cl_image_tag post.user.photo.key, class: "profile-pic" %>
+        <% user = User.find(post.user_id) %>
+          <%= cl_image_tag user.photo.key, class: "profile-pic" if user.photo.key%>
         </div>
 
         <div class="username-top">

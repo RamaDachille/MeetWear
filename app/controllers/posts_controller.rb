@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
   def share_index
     @posts = Post.where(post_type: "Share").order(created_at: :desc)
-    raise
   end
 
   def show
@@ -28,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.brand_tag = params[:commit]
     @post.user_id = current_user.id
     if @post.save!
       if @post.post_type == 'Share'

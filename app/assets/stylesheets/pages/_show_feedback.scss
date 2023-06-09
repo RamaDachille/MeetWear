@@ -1,0 +1,120 @@
+#show-feed{
+  background-color: white;
+  font-family: $my-font;
+
+.form-whole{
+  margin-bottom: 50px;
+}
+
+.buttys-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.butters {
+  width: 100%;
+  background: linear-gradient(to right, #9C448C, #661A58);
+  color: white;
+  border-radius: 15px;
+  border: none;
+  height: 47px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  font-size: 17px;
+  font-family: $my-font;
+}
+
+.feedback-img {
+  border-radius: 12px 12px 0px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 8px;
+}
+
+.border-holder{
+  display: flex;
+    justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  .ourline{
+    height: 2px;
+    width: 99px;
+    background-color: #e1e1e1;
+    margin-bottom: 20px;
+    margin-top: 6px;
+    border-radius: 50px;
+  }
+}
+
+.text-in{
+  margin-left: 10px;
+  font-family: $font-family-lato;
+  margin-top: 15px;
+  margin-right: 10px;
+
+  .on-top {
+    font-size: 15px;
+    color: black;
+  }
+
+  .on-bottom {
+    font-size: 13px;
+    color: rgb(124, 124, 124);
+  }
+}
+
+.username-cont{
+  margin-top: 8px;
+  margin-left: 8px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.usern{
+font-size: 14px;
+color: black;
+font-family: $my-font;
+
+}
+
+.feedback-styling {
+font-size: 13px;
+color: black;
+font-family: $my-font;
+margin-left: 10px;
+margin-right: 10px;
+
+}
+.centering-feedback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: rgb(0, 0, 0);
+
+  .h4 {
+    font-size: 15px;
+    text-align: center;
+    }
+
+}
+
+
+
+
+
+
+#new_feedback{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 90px;
+
+  div {
+    text-align: center;
+  }
+}
+
+
+
+}

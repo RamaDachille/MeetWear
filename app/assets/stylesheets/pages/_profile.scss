@@ -1,0 +1,15 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.profile-images {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-images img {
+  width: 100%;
+  height: auto;
+}

@@ -7,7 +7,7 @@
     text-decoration: none;
     margin-right: 10px;
     position: relative;
-  top: -7px;
+    top: -7px;
   }
 }
 
@@ -17,14 +17,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: white;
   margin-top: 10px;
   margin-bottom: 20px;
-  background-color: white;
-
+  background: linear-gradient(-60deg, white, #d296c7, #9C448C, #661A58);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 
   .plus {
-    color: $my-purple;
+    color: white;
     text-decoration: none;
     font-size: 70px;
   }
@@ -32,10 +32,11 @@
 
 .form-control {
   height: 100px;
-  border-radius: 3%;
+  border-radius: 5px;
   display: flex;
   background-color: white;
   margin-bottom: 10px;
+  box-shadow: none;
     &:focus {
         background-color: white;
         box-shadow: none;
@@ -47,6 +48,7 @@
 #post_post_type {
   width: 100%;
   margin-bottom: 1rem;
+  margin-top: 18px;
     &:focus {
       box-shadow: none;
     }
@@ -55,7 +57,7 @@
 .drop-down {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem !important;
+  margin-bottom: 15px !important;
 
   select {
     width: 100%;
@@ -81,8 +83,81 @@
 
 .create-post-button {
   width: 100% !important;
-  background: $my-purple !important;
-  color: white !important;
-  border-radius: 5px !important;
+  background: linear-gradient(to right, #9c448c, #661A58);
+  color: white;
+  border-radius: 15px !important;
+  border: none;
+  height: 47px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
+  transition: all 0.3s ease;
+}
+
+.create-post-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.tag-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.tag{
+  pointer-events: none;
+  background-color: white;
+  color: #878787;
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 15px;
+  // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
+
+}
+
+.tag::before {
+  pointer-events: all;
+  display: inline-block;
+  content: 'x';
+  height: 20px;
+  width: 20px;
+  margin-right: 6px;
+  text-align: center;
+  color: #878787;
+  background-color: none;
+}
+
+#post_brand_tag {
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  background-color: white;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  box-shadow: none;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.form-check-input {
+  padding: 10px !important;
+  cursor: none;
+}
+
+.form-check-input:checked {
+  background-color: #661A58;
+  border-color: #661A58;
+}
+
+.form-check-input:focus {
+  box-shadow: none !important;
 }

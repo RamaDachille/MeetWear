@@ -1,16 +1,16 @@
 <main class="cardv1" id="post-<%= post.id %>" data-controller="accordion" >
-
   <div class="share-card">
     <div class="gradient">
       <div class="grad-and-icons">
         <div class="icons-for-grad">
-
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              <%= link_to post_comments_path(post) do %>
+              <i class="fa-regular fa-comment fa-lg" style="color: #FFFFFF;"></i>
+              <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-1">100</p>
+              <p class="i-1"><%= post.comments.count  %></p>
             </div>
           </div>
 
@@ -18,15 +18,15 @@
             <div class="icon">
               <%= link_to post_likes_path(post), data:{turbo_method: :post} do %>
               <% if Like.where(post_id: post).empty? %>
-                   <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
-                   <% else %>
-                   <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
+                <% else %>
+                <i class="fa-solid fa-star fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
               <% end %>
 
                 <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-2">100</p>
+              <p class="i-2"><%= Like.where(post_id: post).count %></p>
             </div>
           </div>
 
@@ -34,22 +34,22 @@
             <div class="icon">
             <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
               <% if SavedPost.where(post_id: post).empty? %>
-                   <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
-                   <% else %>
-                   <i class="fa-solid fa-bookmark"></i>
+                <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                <% else %>
+                <i class="fa-solid fa-bookmark fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
               <% end %>
 
                 <% end %>
 
             </div>
             <div class="icon-text">
-              <p class="i-3">100</p>
+              <p class="i-3"><%= SavedPost.where(post_id: post).count %></p>
             </div>
           </div>
         </div>
 
         <div>
-          <%= image_tag 'avatar.png', class: "profile-pic" %>
+          <%= cl_image_tag  User.find(post.user_id).photo.key, class: "profile-pic" %>
         </div>
 
         <div class="username-top">
@@ -57,7 +57,7 @@
         </div>
 
         <div>
-          <%= cl_image_tag post.photo.key, class: "card-img" %>
+          <%= cl_image_tag post.photo.key, class: "card-img" if post.photo.key %>
         </div>
       </div>
     </div>

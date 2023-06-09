@@ -59,12 +59,16 @@ joanna = User.new(email: "joanna@example.com",
                   last_name: "Pink",
                   user_name: "joanna_pink")
 joanna.save!
+joanna = create_pics("https://images.unsplash.com/photo-1521198022873-af0f772bf653?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1737&q=80", joanna.id, joanna)
+joanna.save!
 
 maria = User.new(email: "maria@example.com",
   password: 123456,
   first_name: "Maria",
   last_name: "Green",
   user_name: "mgreen")
+maria.save!
+maria = create_pics("https://images.unsplash.com/photo-1530653535919-df7cc2bee192?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80", maria.id, maria)
 maria.save!
 
 carolina = User.new(email: "carolina@example.com",
@@ -73,6 +77,23 @@ carolina = User.new(email: "carolina@example.com",
   last_name: "Blue",
   user_name: "bluecarolina")
 carolina.save!
+carolina = create_pics("https://images.unsplash.com/photo-1554423443-d9b73c9b7ced?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80", carolina.id, carolina)
+carolina.save!
+
+pics = [
+  "https://images.unsplash.com/photo-1526510747491-58f928ec870f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1502877828070-33b167ad6860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1210&q=80",
+  "https://images.unsplash.com/photo-1520932767681-47fc69dd54e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+  "https://images.unsplash.com/photo-1621963451088-1f1efccf6ca2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+  "https://images.unsplash.com/photo-1525085475165-c6808cdb005e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80",
+  "https://images.unsplash.com/photo-1517630800677-932d836ab680?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1620117654333-c125fef82817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1630255732364-a69ade0f0543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1639488043403-66697298ea4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+]
 
 usernames = [
   "FashionistaQueen",
@@ -117,13 +138,15 @@ usernames = [
   "Style_Journey"
 ]
 
-10.times do
+10.times do |i|
   user = User.new(email: Faker::Internet.email,
           password: 123456,
           first_name: Faker::Beer.brand,
           last_name: Faker::Color.color_name,
           user_name: usernames.sample
           )
+  user.save!
+  user = create_pics(pics[i], user.id, user)
   user.save!
 end
 puts "creating Users"

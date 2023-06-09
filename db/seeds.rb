@@ -59,12 +59,16 @@ joanna = User.new(email: "joanna@example.com",
                   last_name: "Pink",
                   user_name: "joanna_pink")
 joanna.save!
+joanna = create_pics("https://unsplash.com/photos/CTlRgg7Gfmw", joanna.id, joanna)
+joanna.save!
 
 maria = User.new(email: "maria@example.com",
   password: 123456,
   first_name: "Maria",
   last_name: "Green",
   user_name: "mgreen")
+maria.save!
+maria = create_pics("https://unsplash.com/photos/KIg7V5AbTpw", maria.id, maria)
 maria.save!
 
 carolina = User.new(email: "carolina@example.com",
@@ -73,6 +77,26 @@ carolina = User.new(email: "carolina@example.com",
   last_name: "Blue",
   user_name: "bluecarolina")
 carolina.save!
+carolina = create_pics("https://unsplash.com/photos/VfjbH7PlWRk", carolina.id, carolina)
+carolina.save!
+
+pics = [
+  "https://unsplash.com/photos/K_b41GaWC5Y",
+  "https://unsplash.com/photos/ua9bUXzUUpw",
+  "https://unsplash.com/photos/46xMMnBk9_Y",
+  "https://unsplash.com/photos/1RV6iEAhNVQ",
+  "https://unsplash.com/photos/CTlRgg7Gfmw",
+  "https://unsplash.com/photos/MBjG3mgBEno",
+  "https://unsplash.com/photos/g0pb9aXpbgQ",
+  "https://unsplash.com/photos/VfjbH7PlWRk",
+  "https://unsplash.com/photos/yuahvgxIXjE",
+  "https://unsplash.com/photos/-FFzCxuXQYY",
+  "https://unsplash.com/photos/4H2fivgnwRg",
+  "https://unsplash.com/photos/HD8KlyWRYYM",
+  "https://unsplash.com/photos/fi-32JQhPZg",
+  "https://unsplash.com/photos/u3WmDyKGsrY",
+  "https://unsplash.com/photos/KIg7V5AbTpw"
+]
 
 usernames = [
   "FashionistaQueen",
@@ -117,13 +141,15 @@ usernames = [
   "Style_Journey"
 ]
 
-10.times do
+10.times do |i|
   user = User.new(email: Faker::Internet.email,
           password: 123456,
           first_name: Faker::Beer.brand,
           last_name: Faker::Color.color_name,
           user_name: usernames.sample
           )
+  user.save!
+  user = create_pics(pics[i], user.id, user)
   user.save!
 end
 puts "creating Users"

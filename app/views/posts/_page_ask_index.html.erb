@@ -2,7 +2,13 @@
   <div class="share-card">
     <div class="gradient">
       <div class="grad-and-icons">
-        <%= link_to "Give advice!", post_path(post), class: "round-button text-decoration-none" %>
+
+        <% if user_signed_in? %>
+          <%= link_to "Give advice!", post_path(post), class: "round-button text-decoration-none" %>
+        <% else %>
+          <%= link_to "Give advice!", new_user_session_path, class: "round-button text-decoration-none"%>
+        <% end %>
+
         <div class="icons-for-grad">
 
           <div class="icon-container">

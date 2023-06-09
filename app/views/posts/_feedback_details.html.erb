@@ -1,0 +1,6 @@
+<p><strong><%= User.find(feedback.user_id).user_name%></strong> <%= time_ago_in_words(feedback.created_at) %></p>
+<p><strong>Occasion: </strong> <%= feedback.occasion_rating %></p>
+<p><strong>Size: </strong><%= feedback.size_rating %></p>
+<p><strong>Color: </strong><%= feedback.color_rating %></p>
+<p><strong>Overall: </strong><%= feedback.overall_style_rating %></p>
+<p><strong>Feedback: </strong><%= feedback.feedback %></p>

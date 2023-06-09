@@ -14,7 +14,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <% if params[:controller] == 'posts' && params[:action] == 'show' %>
+    <body style="background-color:white">
+      <%= yield %>
+    </body>
+    <% else %>
+    <body>
+      <%= yield %>
+    </body>
+<% end %>
+
+
+
+
+
 </html>

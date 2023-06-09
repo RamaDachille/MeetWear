@@ -49,11 +49,11 @@
         </div>
 
         <div>
-          <%= image_tag 'avatar.png', class: "profile-pic" %>
+          <%= cl_image_tag post.user.photo.key, class: "profile-pic" %>
         </div>
 
         <div class="username-top">
-        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+        <p><strong><%=  post.user.user_name %></strong></p>
         </div>
 
         <div>
@@ -63,7 +63,7 @@
     </div>
       <div class="card-text">
         <div class="top-t">
-        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+        <p><strong><%=  post.user.user_name %></strong></p>
         </div>
               <div class="medium-t">
                 <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span> <span data-accordion-target="hiddenText" class="d-none"><%= post.description[0...post.description.length]%></span> </p>

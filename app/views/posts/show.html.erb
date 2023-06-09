@@ -1,27 +1,69 @@
-<h1>Post Show page</h1>
+<div id="show-feed">
 
-<p><strong>Name: </strong><%= User.find(@post.user_id).user_name %></p>
-<%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill if @post.photo.key%>
-<p><strong>Description: </strong><%= @post.description %></p>
-<p><strong>Category: </strong><%= @post.category %></p>
-<p><strong>Occasion: </strong><%= @post.occasion %></p>
-<p><strong>Brands: </strong><%= @post.brand_tag %></p>
-<p><strong>Created at: </strong><%= time_ago_in_words(@post.created_at) %></p>
+<p>x back</p>
+
+
+<div class="form-whole">
+
+<%= cl_image_tag(@post.photo.key, height: 400, width: 400, crop: :fill, class: "feedback-img") if @post.photo.key %>
+
+<%# <div class="username-cont"> %>
+<%# <p class="usern"><strong><%= User.find(@post.user_id).user_name</strong></p>  %>
+<%# </div> %>
+
+
+
+<div class="text-in">
+  <div class="on-top">
+    <p><strong>Description: </strong><%= @post.description %></p>
+    <p><strong>Occasion: </strong><%= @post.occasion %></p>
+    <p><strong>Brands: </strong><%= @post.brand_tag %></p>
+  </div>
+
+  <div class="on-bottom">
+    <p><%= time_ago_in_words(@post.created_at) %> ago</p>
+  </div>
+</div>
+
+
+<div class="border-holder">
+<%# <hr class="solid"> %>
+<div class="ourline"></div>
+</div>
 
 <% if @post.post_type == "Ask" %>
   <div class= "ask">
 
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
     <div class= "feedback-form <%= !no_feedback ? 'd-none' : '' %>">
+
+<div class="feedback-styling">
+
+<div class="centering-feedback">
       <h4><strong>Give a feedback</strong></h4>
+      </div>
+
+
+
+      <div>
       <div>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
           <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
           <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
+        </div>
+            <div class="border-holder">
+              <div class="ourline"></div>
+            </div>
           <%= f.input :feedback,  label: "Feedback" %>
-          <%= f.submit "Send your feedback" %>
+
+</div>
+
+
+          <div class="buttys-container">
+          <%= f.submit "Send your feedback", class:"butters" %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -32,34 +74,29 @@
 
       <div class="occasion">
         <p><strong>Occasion: </strong></p>
-        <p><%= @post.feedbacks.average(:occasion_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:occasion_rating).round(1) if @post.feedbacks.average(:occasion_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="color">
         <p><strong>Color: </strong></p>
-        <p><%= @post.feedbacks.average(:color_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:color_rating).round(1) if @post.feedbacks.average(:color_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="size">
         <p><strong>Size: </strong></p>
-        <p><%= @post.feedbacks.average(:size_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:size_rating).round(1) if @post.feedbacks.average(:size_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="overall">
         <p><strong>Overall style: </strong></p>
-        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) if @post.feedbacks.average(:overall_style_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
     </div>
 
     <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
       <h4><strong>Feedbacks</strong></h4>
       <% @feedbacks.each do |feedback| %>
-        <p><strong><%= User.find(feedback.user_id).user_name%></strong> <%= time_ago_in_words(feedback.created_at) %></p>
-        <p><strong>Occasion: </strong> <%= feedback.occasion_rating %></p>
-        <p><strong>Size: </strong><%= feedback.size_rating %></p>
-        <p><strong>Color: </strong><%= feedback.color_rating %></p>
-        <p><strong>Overall: </strong><%= feedback.overall_style_rating %></p>
-        <p><strong>Feedback: </strong><%= feedback.feedback %></p>
+       <%= render "feedback_details", feedback: feedback %>
       <% end %>
     </div>
   </div>
@@ -68,3 +105,5 @@
   <div class= "share d-none">
   </div>
 <% end %>
+</div>
+</div>

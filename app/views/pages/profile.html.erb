@@ -1,10 +1,38 @@
-<% @posts.each do |post| %>
-  <p><%= User.find(post.user_id).user_name %></p>
-  <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
-  <p><%= post.description %></p>
-  <p><%= post.category %></p>
-  <p><%= post.occasion %></p>
-  <p><%= time_ago_in_words(post.created_at) %></p>
-<% end %>
-
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+
+<%# PROFILE PHOTO %>
+<% profile_user = User.find(current_user.id) %>
+<%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
+
+<%# OWNERS SHARE POSTS %>
+<h1>Your share posts</h1>
+<div class="profile-container">
+  <% @posts.where(post_type: 'Share').each do |post| %>
+    <div class="profile-images">
+      <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+    </div>
+  <% end %>
+</div>
+
+<%# OWNERS ASK POSTS %>
+<h1>Your ask posts</h1>
+<div class="profile-container">
+  <% @posts.where(post_type: 'Ask').each do |post| %>
+    <div class="profile-images">
+      <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+    </div>
+  <% end %>
+</div>
+
+<%# OWNERS SAVED POSTS %>
+<h1>Saved posts</h1>
+<div class="profile-container">
+  <% SavedPost.where(user_id: current_user).each do |saved| %>
+    <%# <p><% user = Post.find(saved.post_id).user_id %><%#= User.find(user).user_name %><%#</p> %>
+    <div class="profile-images">
+      <%= cl_image_tag Post.find(saved.post_id).photo.key, height: 300, width: 400, crop: :fill if Post.find(saved.post_id).photo.key %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

@@ -2,15 +2,11 @@
   <div class="main-container">
       <%= render "shared/slider" %>
       <div id="home" >
-         <div class="cards">
+        <div class="cards">
           <% @posts.each do |post| %>
             <%= render "posts/share_index", post: post %>
           <% end %>
-           <%# @posts.each do |post| %>
-             <%#= render "posts/share_index", post: post %>
-             <%#= link_to "ggggghg", post_comments_path(post) %>
-           <%# end %>
-          </div>
+        </div>
       </div>
   </div>
 

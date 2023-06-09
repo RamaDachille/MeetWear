@@ -1,30 +1,36 @@
-<div class= "share">
-    <div class= "card-comments mt-3">
-     <%= link_to  root_path(anchor: "post-#{@post.id}"), class: "leftnav__link" do %>
-
-      <h3>x</h3>
-    <% end %>
-    <h3>Comments</h3>
-      <div class="comments mt-3">
-        <% @comments.each do |comment| %>
-
-          <div id="comment<%= comment.id %>">
-          <p><strong><%= User.find(comment.user_id).user_name%></strong> <%= time_ago_in_words(comment.created_at) %></p>
-          <p><%= comment.content %></p>
-          </div>
+<div class= "main-container">
+    <div class= "top">
+      <div class= "left">
+        <%= link_to  root_path(anchor: "post-#{@post.id}"), class: "leftnav__link" do %>
+          <h3><i class="fa-solid fa-arrow-left" style="color: black"></i></h3>
         <% end %>
       </div>
-
-      <div class="comment">
-        <p class=""><strong>Add a comment <i class="fa-regular fa-comment"></i></strong></p>
-        <div class="">
-          <%= simple_form_for [@post, @comment] do |f| %>
-            <%= f.input :content, label: false %>
-            <%= f.submit "Post"%>
-          <% end %>
-        </div>
+      <div class="center">
+        <h3>Comments</h3>
       </div>
+    </div>
 
+  <div class= "comments">
+      <% @comments.each do |comment| %>
+        <div class="card-all-comments">
+
+        <div class= "user-info">
+          <%= image_tag 'avatar.png', class: "profile-pic" %>
+          <div class= "username-top">
+          <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
+          </div>
+        </div>
+
+        <div class="content">
+          <div id="comment<%= comment.id %>">
+            <p><%= comment.content %></p>
+            <div id="time">
+              <p> <%= time_ago_in_words(comment.created_at) %></p>
+            </div>
+          </div>
+          </div>
+        </div>
+      <% end %>
 
 
        <%# <div data-controller="comment">
@@ -35,6 +41,15 @@
             <%#= f.submit "Post"%>
           <%# end %>
         <%# </div>
-      </div> %>
-    </div>
+       </div> %>
   </div>
+    <div class="add-comment">
+      <p class=""><strong>Add a comment <i class="fa-regular fa-comment"></i></strong></p>
+      <div class="">
+        <%= simple_form_for [@post, @comment] do |f| %>
+          <%= f.input :content, label: false %>
+          <%= f.submit "Post"%>
+        <% end %>
+      </div>
+    </div>
+</div>

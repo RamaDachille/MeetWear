@@ -2,12 +2,8 @@
   <div class="share-card">
     <div class="gradient">
       <div class="grad-and-icons">
+        <%= link_to "Give advice!", post_path(post), class: "round-button text-decoration-none" %>
         <div class="icons-for-grad">
-
-
-       <div class="icon-container">
-           <button class="round-button">Give advice!</button>
-          </div>
 
           <div class="icon-container">
             <div class="icon">
@@ -20,16 +16,22 @@
 
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+              <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
+                <% if SavedPost.where(post_id: post).empty? %>
+                  <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                <% else %>
+                  <i class="fa-solid fa-bookmark fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
+                <% end %>
+              <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-3">100</p>
+              <p class="i-3"><%= SavedPost.where(post_id: post).count %></p>
             </div>
           </div>
         </div>
 
         <div>
-          <%= image_tag 'avatar.png', class: "profile-pic" %>
+          <%= cl_image_tag  User.find(post.user_id).photo.key, class: "profile-pic" %>
         </div>
 
         <div class="username-top">

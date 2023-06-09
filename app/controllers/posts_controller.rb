@@ -6,12 +6,11 @@ class PostsController < ApplicationController
   end
 
   def ask_index
-    @posts = Post.where(post_type: "Ask")
+    @posts = Post.where(post_type: "Ask").order(created_at: :desc)
   end
 
   def share_index
-    @posts = Post.where(post_type: "Share")
-    raise
+    @posts = Post.where(post_type: "Share").order(created_at: :desc)
   end
 
   def show
@@ -31,7 +30,11 @@ class PostsController < ApplicationController
     @post.brand_tag = params[:commit]
     @post.user_id = current_user.id
     if @post.save!
-      redirect_to post_path(@post), notice: "Your post was successfully created."
+      if @post.post_type == 'Share'
+        redirect_to root_path, notice: "Your post was successfully created."
+      else
+        redirect_to ask_feed_path
+      end
     else
       render :new, status: :unprocessable_entity
     end

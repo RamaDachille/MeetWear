@@ -6,8 +6,8 @@
 </div>
 
 <div>
-  <%= simple_form_for @post do |f| %>
-    <%= f.input :photo, as: :file, input_html: { hidden: true }, wrapper_html: {class: "add-image-card"},label: "+" , label_html: { class: 'plus' }%>
+  <%= simple_form_for @post,  data: { postform_target: "adam",  action: "submit->postform#send" } do |f| %>
+    <%= f.input :photo, as: :file, input_html: { hidden: true }, wrapper_html: { class: "add-image-card" },label: "+" , label_html: { class: 'plus' }%>
     <%= f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
     <div class="drop-down">
       <%= f.label :occasion, "Occasion"%>
@@ -40,12 +40,13 @@
           ["Festival", "Festival"]
       ]) %>
     </div>
-    <%= f.input :brand_tag %>
+    <%= f.input :brand_tag, wrapper_html: { data: {}}, input_html: { data: {postform_target: "input"} } %>
+    <div class="tag-container" data-postform-target="container"></div>
     <%= f.input :description, input_html: { maxlength: 300 } %>
     <div class="checkbox-wrapper">
-      <%= f.input :size_rating,  wrapper_html: {class:"stupid-box"}, :inline_label => false, input_html: {style: "padding:20px" }, label: false %>
-      <%= f.label :size_rating, 'Custom label' %>
+      <%= f.input :size_rating,  wrapper_html: { class: "stupid-box" }, :inline_label => false, input_html: { style: "padding: 20px" }, label: false %>
+      <%= f.label :size_rating, 'Feeback for fit' %>
     </div>
-    <%= f.button :submit, class: "create-post-button" %>
+    <%= f.submit :submit, class: "create-post-button", data: {postform_target: "button"} %>
   <% end %>
 </div>

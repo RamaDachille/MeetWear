@@ -1,5 +1,5 @@
 .comments {
-  margin-top: 20px;
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -7,7 +7,30 @@
 
 .top {
   display: flex;
-  justify-content: space-between;
+  // justify-content: center;
+  align-items: center;
+  // padding: 10px
+  margin-top: 30px;
+  color: black;
+  background-color: #FFFFFF;
+  width: 100%;
+  position: fixed;
+  top: -30px;
+  height: 60px;
+  left: -3px;
+  z-index: 999;
+
+}
+
+.left {
+  position: relative;
+  left: 15px;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .user-info {
@@ -79,6 +102,4 @@
     #time {
       color: grey;
     }
-
-
 }

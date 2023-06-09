@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.brand_tag = params[:commit]
     @post.user_id = current_user.id
     if @post.save!
       if @post.post_type == 'Share'

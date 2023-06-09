@@ -4,6 +4,11 @@
       <div class="grad-and-icons">
         <div class="icons-for-grad">
 
+
+       <div class="icon-container">
+           <button class="round-button">Give advice!</button>
+          </div>
+
           <div class="icon-container">
             <div class="icon">
               <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
@@ -40,12 +45,9 @@
         <div class="top-t">
         <p><strong><%= User.find(post.user_id).user_name %></strong></p>
         </div>
-            <div class="cutoff">
               <div class="medium-t">
                 <p><strong>Occasion: </strong><%= post.occasion %></p>
               </div>
-              </div>
-              <input class="expand-btn" type="checkbox">
                 <div class="low-t">
                  <p><%= time_ago_in_words(post.created_at) %></p>
                 </div>

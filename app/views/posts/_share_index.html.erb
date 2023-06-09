@@ -7,12 +7,10 @@
 
           <div class="icon-container">
             <div class="icon">
-              <%= link_to post_comments_path(post) do %>
               <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
-              <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-1"><%= post.comments.count  %></p>
+              <p class="i-1">100</p>
             </div>
           </div>
 
@@ -68,7 +66,7 @@
         <p><strong><%= User.find(post.user_id).user_name %></strong></p>
         </div>
               <div class="medium-t">
-                <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span><span data-accordion-target="hiddenText" class="d-none"><%= post.description[50...post.description.length]%></span> </p>
+                <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span> <span data-accordion-target="hiddenText" class="d-none"><%= post.description[0...post.description.length]%></span> </p>
 
                <p class="d-none" data-accordion-target="hiddenTag"><strong>Category: </strong><%= post.category %> </p>
                <p class="d-none" data-accordion-target="hiddenTag"><strong>Occasion: </strong><%= post.occasion %> </p>

@@ -32,22 +32,22 @@
 
       <div class="occasion">
         <p><strong>Occasion: </strong></p>
-        <p><%= @post.feedbacks.average(:occasion_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:occasion_rating).round(1) if @post.feedbacks.average(:occasion_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="color">
         <p><strong>Color: </strong></p>
-        <p><%= @post.feedbacks.average(:color_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:color_rating).round(1) if @post.feedbacks.average(:color_rating)%> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="size">
         <p><strong>Size: </strong></p>
-        <p><%= @post.feedbacks.average(:size_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:size_rating).round(1) if @post.feedbacks.average(:size_rating)%> <i class="fa-regular fa-star"></i></p>
       </div>
 
       <div class="overall">
         <p><strong>Overall style: </strong></p>
-        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) %> <i class="fa-regular fa-star"></i></p>
+        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) if @post.feedbacks.average(:overall_style_rating) %> <i class="fa-regular fa-star"></i></p>
       </div>
     </div>
 

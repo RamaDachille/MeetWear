@@ -11,6 +11,11 @@ class SavedPostsController < ApplicationController
       @saved_post.user = current_user
       @saved_post.save
     end
-    redirect_to root_path
+
+    if @post.post_type == 'Share'
+      redirect_to root_path
+    else
+      redirect_to ask_feed_path
+    end
   end
 end

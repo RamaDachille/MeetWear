@@ -81,7 +81,7 @@ carolina = create_pics("https://images.unsplash.com/photo-1554423443-d9b73c9b7ce
 carolina.save!
 
 pics = [
-  "https://images.unsplash.com/photo-1526510747491-58f928ec870f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
   "https://images.unsplash.com/photo-1502877828070-33b167ad6860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1210&q=80",
   "https://images.unsplash.com/photo-1520932767681-47fc69dd54e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
   "https://images.unsplash.com/photo-1621963451088-1f1efccf6ca2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -92,7 +92,7 @@ pics = [
   "https://images.unsplash.com/photo-1630255732364-a69ade0f0543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
   "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
   "https://images.unsplash.com/photo-1639488043403-66697298ea4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
 ]
 
 usernames = [
@@ -101,10 +101,8 @@ usernames = [
   "TrendsetterChic",
   "fashionobsessed",
   "HauteCoutureDiva",
-  "glamourenthusiast",
   "chicAndFabulous",
   "FashionForward",
-  "trendyfashionista",
   "CoutureAddict",
   "runway_princess",
   "FashionIconic",
@@ -112,10 +110,8 @@ usernames = [
   "GlamFashionista",
   "chic_vogue",
   "TrendyStyleStar",
-  "fashionistaGoddess",
   "StyleMaven",
   "glamourista",
-  "FashionistaExtraordinaire",
   "Fashion.Seeker",
   "style_quest",
   "Trend.Explorer",
@@ -126,7 +122,6 @@ usernames = [
   "Trend.Tracker",
   "Style_Insider",
   "Fashion.Savvy",
-  "Wardrobe_Adventurer",
   "Style.Challenger",
   "Fashion_Insight",
   "Trendy.Seeker",
@@ -134,7 +129,6 @@ usernames = [
   "Fashion.Finder",
   "Style_Detective",
   "Trend.Hunter",
-  "Fashionista.Inquiry",
   "Style_Journey"
 ]
 

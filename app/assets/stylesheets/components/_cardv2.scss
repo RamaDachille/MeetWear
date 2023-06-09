@@ -1,8 +1,16 @@
+#ask-cards{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // margin: 0 -1rem;
+}
+
 #cardv2 {
 
   .share-card {
     width: 360px;
-    min-height: 640px;
+    // height: 640px;
     border-radius: 12px;
     // border: 1px solid black;
     border: #FFFFFF;
@@ -31,9 +39,24 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%);
-  width: 404px;
+  width: 304px;
   // padding-bottom: 5px;
   color:#FFFFFF;
+
+
+  .round-button {
+    border-radius: 20px;
+    background-color: #9B2DD8;
+    color: white;
+    font-size: 16px;
+    padding: 5px 5px;
+    border: none;
+  }
+
+
+
+
+  }
 
   .icon{
     align-self: center;
@@ -44,7 +67,7 @@
     align-self: center;
     font-size: 11px;
   }
-}
+
 
 .i-1 {
 padding-right: 3px;
@@ -72,7 +95,7 @@ padding-right: 1px;
 position: absolute;
 width: 60px;
 height: 60px;
-left: 289px;
+right: 295px;
 top: -27px;
 border-radius: 50px;
 z-index: 2;
@@ -89,7 +112,7 @@ justify-content: center;
 position: absolute;
 width: 116px;
 height: 22px;
-left: 177px;
+right: 187px;
 top: -10px;
 z-index: 1;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -120,31 +143,9 @@ color: black
     padding: 1rem 0;
   }
 
-  .cutoff {
-    margin-bottom: 8px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .more {
+    color: #6e6e6e;
   }
-
-  .expand-btn {
-    appearance: none;
-  }
-
-  .expand-btn::before {
-    content: "more";
-  }
-
-  .expand-btn:checked::before {
-    content: "more";
-  }
-
-
-  .cutoff:has(+ .expand-btn:checked) {
-    max-height: none;
-  }
-
 
   .card-text {
     margin-left: 10px;
@@ -154,7 +155,7 @@ color: black
 
 
     p{
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
 
@@ -175,3 +176,26 @@ color: black
     color: rgb(178, 177, 177);
   }
 }
+
+// .accordion {
+// background-color: #f5f5f5;
+// color: #444;
+// cursor: pointer;
+// width: 100%;
+// text-align: left;
+// border: none;
+// outline: none;
+// transition: 0.4s;
+// }
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+// .active, .accordion:hover {
+// background-color: transparent;
+// }
+
+/* Style the accordion panel. Note: hidden by default */
+// .panel {
+// background-color: transparent;
+// display: none;
+// overflow: hidden;
+// }

@@ -28,6 +28,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.brand_tag = params[:commit]
     @post.user_id = current_user.id
     if @post.save!
       redirect_to post_path(@post), notice: "Your post was successfully created."

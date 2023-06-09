@@ -1,16 +1,16 @@
 <main class="cardv1" id="post-<%= post.id %>" data-controller="accordion" >
-
   <div class="share-card">
     <div class="gradient">
       <div class="grad-and-icons">
         <div class="icons-for-grad">
-
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              <%= link_to post_comments_path(post) do %>
+              <i class="fa-regular fa-comment fa-lg" style="color: #FFFFFF;"></i>
+              <% end %>
             </div>
             <div class="icon-text">
-              <p class="i-1">100</p>
+              <p class="i-1"><%= post.comments.count  %></p>
             </div>
           </div>
 

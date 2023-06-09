@@ -6,6 +6,10 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @posts = Post.where(user_id: params[:id])
+    if user_signed_in?
+      @posts = Post.where(user_id: params[:id])
+    else
+      redirect_to new_user_session_path, alert: "Please sign in to access your profile."
+    end
   end
 end

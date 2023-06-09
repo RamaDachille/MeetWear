@@ -1,3 +1,5 @@
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+
 <% @posts.each do |post| %>
   <p><%= User.find(post.user_id).user_name %></p>
   <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
@@ -6,5 +8,3 @@
   <p><%= post.occasion %></p>
   <p><%= time_ago_in_words(post.created_at) %></p>
 <% end %>
-
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>

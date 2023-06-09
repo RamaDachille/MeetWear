@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
   def share_index
     @posts = Post.where(post_type: "Share").order(created_at: :desc)
-    raise
   end
 
   def show

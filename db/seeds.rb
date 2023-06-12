@@ -34,7 +34,6 @@ images_share = [
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142297/tumblr_d1f848c440edcf12e8dc4f7efa36226c_a837fedd_1280_wh2oqj.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_de26a18d8068fc32223dbf8232bd2a8a_f281a2af_1280_cxfwpo.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_bd3983c2f635152a637846c0d1fc872b_e697de42_1280_fcbunc.jpg",
-  "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_21387bcd55ed43af230124b3a2a54b25_e14a5a3b_1280_bkzkna.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_af360d1efc0461e4a9638302a4eaaf2d_a24885b0_2048_d7ozx4.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_27e7d396addc8b3b522213a49adaaf57_f8c6ded3_1280_jkikt7.jpg",
   "https://res.cloudinary.com/ddok1v1nf/image/upload/v1686142296/tumblr_b7dd96bd2ac91f1b590b1d2c38b10eca_6b602512_1280_llwgwo.jpg",

@@ -13,20 +13,26 @@
 
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              <a href="<%= post_path(post) if user_signed_in? %>">
+                <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              </a>
             </div>
             <div class="icon-text">
-              <p class="i-1">100</p>
+              <p class="i-1"><%= Feedback.where(post_id: post).count %></p>
             </div>
           </div>
 
           <div class="icon-container">
             <div class="icon">
               <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
-                <% if SavedPost.where(post_id: post).empty? %>
-                  <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                <% if user_signed_in? %>
+                  <% if SavedPost.where(post_id: post.id, user_id: current_user.id).empty? %>
+                    <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                  <% else %>
+                    <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                  <% end %>
                 <% else %>
-                  <i class="fa-solid fa-bookmark fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
+                  <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
                 <% end %>
               <% end %>
             </div>
@@ -46,7 +52,7 @@
         </div>
 
         <div>
-          <%= cl_image_tag post.photo.key, class:"card-img"%>
+          <%= cl_image_tag post.photo.key, class:"card-img" if post.photo.key%>
         </div>
       </div>
     </div>

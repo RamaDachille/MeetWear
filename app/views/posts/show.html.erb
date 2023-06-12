@@ -1,6 +1,11 @@
 <div id="show-feed">
 
-<p>x back</p>
+<div class="ontop">
+<%= link_to :back do %>
+  <i class="fa-solid fa-arrow-left" style="color: black"></i>
+<% end %>
+<p> Feedback </p>
+</div>
 
 
 <div class="form-whole">
@@ -35,66 +40,71 @@
   <div class= "ask">
 
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
-    <div class= "feedback-form <%= !no_feedback ? 'd-none' : '' %>">
-
-<div class="feedback-styling">
-
-<div class="centering-feedback">
-      <h4><strong>Give a feedback</strong></h4>
+<% if no_feedback %>
+  <div class= "feedback-form">
+    <div class="feedback-styling">
+      <div class="centering-feedback">
+        <h4><strong>Give a feedback</strong></h4>
       </div>
-
-
-
-      <div>
       <div>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
           <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
           <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
-        </div>
-            <div class="border-holder">
-              <div class="ourline"></div>
-            </div>
-          <%= f.input :feedback,  label: "Feedback" %>
-
-</div>
-
-
+          <div class="border-holder">
+            <div class="ourline"></div>
+          </div>
+          <div>
+            <%= f.input :feedback,  label: "Feedback" %>
+          </div>
           <div class="buttys-container">
-          <%= f.submit "Send your feedback", class:"butters" %>
+            <%= f.submit "Send your feedback", class:"butters" %>
           </div>
         <% end %>
       </div>
-    </div>
 
-    <div class= "card-feedback-average mt-3 <%= no_feedback ? 'd-none' : '' %>">
+      </div>
+<% end %>
+    <div class= "card-feedback-average <%= no_feedback ? 'd-none' : '' %>">
+    <div class= "centering-average">
+
       <h4><strong>Feedback average</strong></h4>
+      </div>
+      <div class= "centering-average2">
       <p><%= @post.feedbacks.count  %> feedbacks</p>
+      </div>
 
+<div class="text-desc">
       <div class="occasion">
-        <p><strong>Occasion: </strong></p>
-        <p><%= @post.feedbacks.average(:occasion_rating).round(1) if @post.feedbacks.average(:occasion_rating) %> <i class="fa-regular fa-star"></i></p>
+        <p><strong>Occasion:  </strong> <%= @post.feedbacks.average(:occasion_rating).round(1) if @post.feedbacks.average(:occasion_rating) %> <i class="fa-solid fa-star"></i></p>
+
       </div>
 
       <div class="color">
-        <p><strong>Color: </strong></p>
-        <p><%= @post.feedbacks.average(:color_rating).round(1) if @post.feedbacks.average(:color_rating) %> <i class="fa-regular fa-star"></i></p>
+        <p><strong>Color: </strong>  <%= @post.feedbacks.average(:color_rating).round(1) if @post.feedbacks.average(:color_rating) %> <i class="fa-solid fa-star"></i></p>
       </div>
 
       <div class="size">
-        <p><strong>Size: </strong></p>
-        <p><%= @post.feedbacks.average(:size_rating).round(1) if @post.feedbacks.average(:size_rating) %> <i class="fa-regular fa-star"></i></p>
+        <p><strong>Size: </strong>  <%= @post.feedbacks.average(:size_rating).round(1) if @post.feedbacks.average(:size_rating) %> <i class="fa-solid fa-star"></i></p>
+
       </div>
 
       <div class="overall">
-        <p><strong>Overall style: </strong></p>
-        <p><%= @post.feedbacks.average(:overall_style_rating).round(1) if @post.feedbacks.average(:overall_style_rating) %> <i class="fa-regular fa-star"></i></p>
+        <p><strong>Overall style: </strong>  <%= @post.feedbacks.average(:overall_style_rating).round(1) if @post.feedbacks.average(:overall_style_rating) %> <i class="fa-solid fa-star"></i></p>
       </div>
+    </div>
+</div>
+
+        <div class="border-holder">
+    <%# <hr class="solid"> %>
+    <div class="ourline"></div>
     </div>
 
     <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
+    <div class= "centering-average">
       <h4><strong>Feedbacks</strong></h4>
+      </div>
       <% @feedbacks.each do |feedback| %>
        <%= render "feedback_details", feedback: feedback %>
       <% end %>

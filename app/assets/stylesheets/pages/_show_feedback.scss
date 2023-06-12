@@ -1,3 +1,24 @@
+.ontop{
+  margin-top: 16px;
+  margin-right: 8px;
+  display: flex;
+  align-items: flex-start;
+
+
+  p{
+    font-size: 19px;
+    color: black;
+    font-family: $my-font;
+    margin-left: 11px;
+  }
+
+  i{
+    font-size: 25px;
+    margin-right: 5px;
+    margin-top: 2px;
+  }
+}
+
 #show-feed{
   background-color: white;
   font-family: $my-font;
@@ -5,6 +26,7 @@
 .form-whole{
   margin-bottom: 50px;
 }
+
 
 .buttys-container{
   display: flex;

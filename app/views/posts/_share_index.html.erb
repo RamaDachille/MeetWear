@@ -20,7 +20,7 @@
               <% if Like.where(post_id: post).empty? %>
                 <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
                 <% else %>
-                <i class="fa-solid fa-star fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
+                <i class="fa-solid fa-star fa-lg" style="color: #ffffff;"></i>
               <% end %>
 
                 <% end %>
@@ -36,7 +36,7 @@
               <% if SavedPost.where(post_id: post).empty? %>
                 <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
                 <% else %>
-                <i class="fa-solid fa-bookmark fa-lg" style="color: #9B2DD8; text-shadow: 0 0 1px rgba(200, 200, 200, 0.5);"></i>
+                <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>
               <% end %>
 
                 <% end %>

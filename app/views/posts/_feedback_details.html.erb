@@ -1,6 +1,22 @@
-<p><strong><%= User.find(feedback.user_id).user_name%></strong> <%= time_ago_in_words(feedback.created_at) %></p>
-<p><strong>Occasion: </strong> <%= feedback.occasion_rating %></p>
-<p><strong>Size: </strong><%= feedback.size_rating %></p>
-<p><strong>Color: </strong><%= feedback.color_rating %></p>
-<p><strong>Overall: </strong><%= feedback.overall_style_rating %></p>
-<p><strong>Feedback: </strong><%= feedback.feedback %></p>
+  <div class="card-surr-centering">
+    <div class="card-surrounding">
+
+      <div class="pfp-feedback-centering">
+        <%= image_tag 'avatar.png', class: "profile-pic" %>
+        <p><strong><%= User.find(feedback.user_id).user_name%></strong> </p>
+      </div>
+
+      <div class="user-fb-styling">
+        <p><strong>Occasion: </strong> <%= feedback.occasion_rating %> <i class="fa-solid fa-star"></i></p>
+        <p><strong>Size: </strong><%= feedback.size_rating %><i class="fa-solid fa-star"></i></p>
+        <p><strong>Color: </strong><%= feedback.color_rating %><i class="fa-solid fa-star"></i></p>
+        <p><strong>Overall: </strong><%= feedback.overall_style_rating %><i class="fa-solid fa-star"></i></p>
+        <p><strong>Feedback: </strong><%= feedback.feedback %></p>
+      </div>
+
+    <div class="low-text-feedback">
+    <p><%= time_ago_in_words(feedback.created_at) %></p>
+    </div>
+
+  </div>
+</div>

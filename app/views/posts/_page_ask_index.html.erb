@@ -13,7 +13,9 @@
 
           <div class="icon-container">
             <div class="icon">
-              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              <a href="<%= post_path(post) if user_signed_in? %>">
+                <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+              </a>
             </div>
             <div class="icon-text">
               <p class="i-1"><%= Feedback.where(post_id: post).count %></p>

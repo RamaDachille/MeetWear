@@ -52,7 +52,7 @@
           <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
-        </div>
+      </div>
             <div class="border-holder">
               <div class="ourline"></div>
             </div>
@@ -66,7 +66,7 @@
           </div>
         <% end %>
       </div>
-    </div>
+      </div>
 
     <div class= "card-feedback-average mt-3 <%= no_feedback ? 'd-none' : '' %>">
       <h4><strong>Feedback average</strong></h4>

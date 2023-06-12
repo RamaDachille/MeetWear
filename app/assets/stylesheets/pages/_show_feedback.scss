@@ -69,7 +69,7 @@
 }
 
 .text-in{
-  margin-left: 10px;
+  margin-left: 5px;
   font-family: $font-family-lato;
   margin-top: 15px;
   margin-right: 10px;
@@ -108,11 +108,32 @@ margin-left: 10px;
 margin-right: 10px;
 
 }
-.centering-feedback{
+
+
+.card-surr-centering{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  color: rgb(0, 0, 0);
+
+.card-surrounding{
+min-height: 250px;
+width: 400px;
+background-color: white;
+border-radius: 12px;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+margin-top: 20px;
+}
+}
+
+
+.centering-average{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -4px;
   color: rgb(0, 0, 0);
 
   .h4 {
@@ -123,7 +144,42 @@ margin-right: 10px;
 }
 
 
+.centering-average2{
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: rgb(142, 142, 142);
+
+.centering-feedback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: rgb(0, 0, 0);
+}
+
+  .h4 {
+    font-size: 15px;
+    text-align: center;
+    }
+
+}
+
+
+.text-desc{
+  margin-left: 5px;
+  font-family: $font-family-lato;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 15px;
+  color: black;
+
+  i{
+    color: rgb(255, 217, 3);
+  }
+  }
 
 
 
@@ -137,6 +193,46 @@ margin-right: 10px;
   }
 }
 
+
+
+.pfp-feedback-centering {
+  display: flex;
+  margin-top: 8px;
+
+  .profile-pic{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  p{
+    margin-left: 11px;
+  }
+}
+
+.user-fb-styling{
+  margin-left: 10px;
+  font-family: $font-family-lato;
+  margin-top: 4px;
+  margin-right: 10px;
+  font-size: 15px;
+  color: black;
+
+  i{
+    color: rgb(255, 217, 3);
+  }
+}
+
+
+.low-text-feedback {
+  margin-left: 10px;
+  font-family: $font-family-lato;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 13px;
+  color: rgb(124, 124, 124);
+}
 
 
 }

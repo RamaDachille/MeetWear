@@ -17,7 +17,7 @@
           <div class="icon-container">
             <div class="icon">
               <%= link_to post_likes_path(post), data:{turbo_method: :post} do %>
-              <% if Like.where(post_id: post).empty? %>
+              <% if Like.where(post_id: post.id, user_id: current_user.id).empty? %>
                 <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
                 <% else %>
                 <i class="fa-solid fa-star fa-lg" style="color: #ffffff;"></i>
@@ -33,7 +33,7 @@
           <div class="icon-container">
             <div class="icon">
             <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
-              <% if SavedPost.where(post_id: post).empty? %>
+              <% if SavedPost.where(post_id: post.id, user_id: current_user.id).empty? %>
                 <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
                 <% else %>
                 <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>

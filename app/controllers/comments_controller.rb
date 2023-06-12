@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @comment = Comment.new
-    @comments = Comment.where(post_id: @post.id)
+    @comments = Comment.where(post_id: @post.id).order(created_at: :desc)
   end
 
   def create

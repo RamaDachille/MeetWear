@@ -35,39 +35,32 @@
   <div class= "ask">
 
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
-    <div class= "feedback-form <%= !no_feedback ? 'd-none' : '' %>">
-
-<div class="feedback-styling">
-
-<div class="centering-feedback">
-      <h4><strong>Give a feedback</strong></h4>
+<% if no_feedback %>
+  <div class= "feedback-form">
+    <div class="feedback-styling">
+      <div class="centering-feedback">
+        <h4><strong>Give a feedback</strong></h4>
       </div>
-
-
-
-      <div>
       <div>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
           <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
           <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
           <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
-      </div>
-            <div class="border-holder">
-              <div class="ourline"></div>
-            </div>
-          <%= f.input :feedback,  label: "Feedback" %>
-
-</div>
-
-
+          <div class="border-holder">
+            <div class="ourline"></div>
+          </div>
+          <div>
+            <%= f.input :feedback,  label: "Feedback" %>
+          </div>
           <div class="buttys-container">
-          <%= f.submit "Send your feedback", class:"butters" %>
+            <%= f.submit "Send your feedback", class:"butters" %>
           </div>
         <% end %>
       </div>
-      </div>
-
+    </div>
+  </div>
+<% end %>
     <div class= "card-feedback-average mt-3 <%= no_feedback ? 'd-none' : '' %>">
       <h4><strong>Feedback average</strong></h4>
       <p><%= @post.feedbacks.count  %> feedbacks</p>

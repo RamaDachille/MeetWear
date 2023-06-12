@@ -93,6 +93,7 @@ pics = [
   "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
   "https://images.unsplash.com/photo-1639488043403-66697298ea4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
   "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1542157585-ef20bfcce579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1044&q=80"
 ]
 
 usernames = [
@@ -169,7 +170,6 @@ post_one = Post.new(post_type: "Share",
               size_rating: [1,2,3,4,5].sample,
               user: User.all.sample
             )
-
             post.save!
             final_post = create_pics(images_share[i], post.id, post)
             final_post.save!
@@ -181,6 +181,8 @@ post_one = Post.new(post_type: "Share",
       user:  User.all.sample,
       post:  Post.all.sample)
       comment.save!
+      final_comment = create_pics(images_share[i], post.id, post)
+      final_comment.save!
     end
 end
 puts "creating Posts Share"

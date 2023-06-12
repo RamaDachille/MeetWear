@@ -2,7 +2,7 @@
 
 <%# PROFILE PHOTO %>
 <% profile_user = User.find(current_user.id) %>
-<%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
+<%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key %>
 
 <%# OWNERS SHARE POSTS %>
 <h1>Your share posts</h1>

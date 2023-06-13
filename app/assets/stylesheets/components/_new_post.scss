@@ -13,13 +13,13 @@
 
 .add-image-card {
   height: 300px;
-  border-radius: 3%;
+  border-radius: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 20px;
-  background: linear-gradient(-60deg, white, #d296c7, #9C448C, #661A58);
+  background: linear-gradient(-60deg, white, #ae68dd, #7b41a0, #622184);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 
@@ -30,10 +30,11 @@
   }
 }
 
-.form-control {
-  height: 100px;
-  border-radius: 5px;
+#post_description {
+  height: 40px;
+  border-radius: 10px;
   display: flex;
+  border: none;
   background-color: white;
   margin-bottom: 10px;
   box-shadow: none;
@@ -83,11 +84,11 @@
 
 .create-post-button {
   width: 100% !important;
-  background: linear-gradient(to right, #9c448c, #661A58);
+  background: linear-gradient(90deg, #ae68dd, #7b41a0, #622184, #501768);
   color: white;
-  border-radius: 15px !important;
+  border-radius: 25px !important;
   border: none;
-  height: 47px;
+  height: 40px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
   transition: all 0.3s ease;
 }
@@ -109,7 +110,7 @@
   color: #878787;
   padding: 8px;
   margin-right: 5px;
-  border-radius: 15px;
+  border-radius: 10px;
   // box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
 
 }
@@ -127,12 +128,12 @@
 }
 
 #post_brand_tag {
-  height: 30px;
-  border-radius: 5px;
+  height: 40px;
+  border-radius: 10px;
   display: flex;
   background-color: white;
   margin-bottom: 10px;
-  border: 1px solid #cccccc;
+  border: none;
   box-shadow: none;
 }
 
@@ -151,13 +152,33 @@
 .form-check-input {
   padding: 10px !important;
   cursor: none;
+  border-radius: 6px;
 }
 
 .form-check-input:checked {
-  background-color: #661A58;
-  border-color: #661A58;
+  background-color: #622184;
+  border-color: #622184;
 }
 
 .form-check-input:focus {
   box-shadow: none !important;
+  outline: none !important;
+}
+
+#post_occasion {
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+    &:focus {
+      outline: none !important;
+    }
+}
+
+#post_category {
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+    &:focus {
+      outline: none !important;
+    }
 }

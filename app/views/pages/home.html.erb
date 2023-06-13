@@ -1,13 +1,13 @@
 <%= render "shared/navbar" %>
-  <div class="main-container">
+  <div class="main-container" data-controller="slider">
+    <div data-action="click->slider#loadCards">
       <%= render "shared/slider" %>
-      <div id="home" >
-        <div class="cards">
-          <% @posts.each do |post| %>
-            <%= render "posts/share_index", post: post %>
-          <% end %>
-        </div>
+    </div>
+    <div id="home" >
+      <div class="cards" data-slider-target="cards">
+            <%= render "posts/share_index", posts: @posts %>
       </div>
+    </div>
   </div>
 
 

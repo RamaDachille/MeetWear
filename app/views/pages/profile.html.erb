@@ -1,5 +1,5 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
-<div data-controller="slider" id="slider">
+<div data-controller="slider2" id="slider">
 <%# PROFILE INFO %>
 
 <%= image_tag 'banner.png', class: "banner-pic" %>
@@ -34,6 +34,9 @@
 </div>
 <%= render "shared/slider_profile" %>
 
+<%# PROFILE PHOTO %>
+<% profile_user = User.find(current_user.id) %>
+<%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key %>
 
 <%# OWNERS SHARE POSTS %>
 <div class="profile-container" data-slider-target="share">

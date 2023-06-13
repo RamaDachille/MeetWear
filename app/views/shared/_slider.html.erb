@@ -1,33 +1,29 @@
 <% if @current_action == 'ask_index' %>
   <div class="container">
-    <div class="tabs">
+    <div class="tabs" data-action="click->slider#toggle">
       <%= link_to root_path do %>
-        <input type="radio" id="radio-1" name="tabs" />
+        <input type="radio" value="Share" id="radio-1" name="tabs" data-slider-target="shareInput"/>
       <% end %>
-      <label class="tab" for="radio-1">Share</label>
+      <label data-slider-target="share" class="tab" for="radio-1">Share</label>
       <%= link_to ask_feed_path do %>
-        <input type="radio" id="radio-2" name="tabs" checked/>
+        <input type="radio" value="Ask" id="radio-2" name="tabs" data-slider-target="askInput" checked/>
       <% end %>
-      <label class="tab ask-text" for="radio-2">Ask</label>
-      <input type="radio" id="radio-3" name="tabs" />
-      <label class="tab" for="radio-3">Dupe</label>
-      <span class="glider ask-glider"></span>
+      <label data-slider-target="ask" class="tab ask-text" for="radio-2">Ask</label>
+      <span data-slider-target="glider" class="glider ask-glider"></span>
     </div>
   </div>
 <% else %>
   <div class="container">
-    <div class="tabs">
+    <div class="tabs" data-action="click->slider#toggle">
       <%= link_to root_path do %>
-        <input type="radio" id="radio-1" name="tabs" checked />
+        <input type="radio" value="Share" id="radio-1" name="tabs" data-slider-target="shareInput" checked />
       <% end %>
-      <label class="tab share-text" for="radio-1">Share</label>
+      <label data-slider-target="share" class="tab share-text" for="radio-1">Share</label>
       <%= link_to ask_feed_path do %>
-        <input type="radio" id="radio-2" name="tabs" />
+        <input type="radio" value="Ask" id="radio-2" name="tabs" data-slider-target="askInput"/>
       <% end %>
-      <label class="tab" for="radio-2">Ask</label>
-      <input type="radio" id="radio-3" name="tabs" />
-      <label class="tab" for="radio-3">Dupe</label>
-      <span class="glider share-glider"></span>
+      <label data-slider-target="ask" class="tab" for="radio-2">Ask</label>
+      <span data-slider-target="glider" class="glider share-glider"></span>
     </div>
   </div>
 <% end %>

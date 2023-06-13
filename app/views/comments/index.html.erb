@@ -1,54 +1,61 @@
-<div class= "main-container">
-    <div class= "top">
-      <div class= "left">
-        <%= link_to  root_path(anchor: "post-#{@post.id}"), class: "leftnav__link" do %>
-          <h3><i class="fa-solid fa-arrow-left" style="color: black"></i></h3>
+<div id= "comments-index">
+  <div class= "main-container">
+      <div class= "top">
+        <div class= "left">
+          <%= link_to  root_path(anchor: "post-#{@post.id}"), class: "leftnav__link" do %>
+            <h3><i class="fa-solid fa-arrow-left" style="color: black"></i></h3>
+          <% end %>
+        </div>
+        <div class="center">
+          <h3>Comments</h3>
+        </div>
+      </div>
+
+    <div class= "comments">
+        <% @comments.each do |comment| %>
+          <div class="card-all-comments">
+            <div class= "user-info">
+              <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
+            <div class= "username-top">
+            <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
+            </div>
+          </div>
+
+          <div class="content">
+            <div id="comment<%= comment.id %>">
+              <p><%= comment.content %></p>
+              <div id="time">
+                <p> <%= time_ago_in_words(comment.created_at) %></p>
+              </div>
+            </div>
+              </div>
+          </div>
         <% end %>
-      </div>
-      <div class="center">
-        <h3>Comments</h3>
-      </div>
+
+
+        <%# <div data-controller="comment">
+          <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>
+          <div class="d-none" data-comment-target="form"> %>
+            <%#= simple_form_for [@post, @comment] do |f| %>
+              <%#= f.input :content, label: false %>
+              <%#= f.submit "Post"%>
+            <%# end %>
+          <%# </div>
+        </div> %>
     </div>
-
-  <div class= "comments">
-      <% @comments.each do |comment| %>
-        <div class="card-all-comments">
-          <div class= "user-info">
-            <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
-          <div class= "username-top">
-          <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
-          </div>
-        </div>
-
-        <div class="content">
-          <div id="comment<%= comment.id %>">
-            <p><%= comment.content %></p>
-            <div id="time">
-              <p> <%= time_ago_in_words(comment.created_at) %></p>
-            </div>
-          </div>
-            </div>
-        </div>
-      <% end %>
-
-
-       <%# <div data-controller="comment">
-        <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>
-        <div class="d-none" data-comment-target="form"> %>
-          <%#= simple_form_for [@post, @comment] do |f| %>
-            <%#= f.input :content, label: false %>
-            <%#= f.submit "Post"%>
-          <%# end %>
-        <%# </div>
-       </div> %>
   </div>
-    <div class="add-comment">
-      <p class=""><strong>Add a comment <i class="fa-regular fa-comment"></i></strong></p>
-      <div class="">
+      <div class="space-bar"></div>
+      <div class="add-comment">
+        <%# <p class=""><strong>Add a comment <i class="fa-regular fa-comment"></i></strong></p> %>
         <%= simple_form_for [@post, @comment] do |f| %>
-          <%= f.input :content, label: false %>
-          <%= f.submit "Post"%>
+          <div><%= f.input :content, label: false, input_html: { maxlength: 300 }, placeholder: "Add a comment ..." %>
+          <div class="post"><%= f.button :submit, "Post", class: "btn-submit" %></div>
         <% end %>
       </div>
-    </div>
 </div>
+
+
+<%#= simple_form_for [@post, @comment] do |f| %>
+  <%#= f.input :content, label: false %>
+  <%#= f.button :submit, "Post" %>
+<%# end %>

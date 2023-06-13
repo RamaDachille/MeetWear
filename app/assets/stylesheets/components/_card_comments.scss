@@ -95,11 +95,18 @@
     .content {
       padding-left: 10px;
       margin-top: 10px;
-      color: black
-      ;
+      color: black;
     }
 
     #time {
       color: grey;
+    }
+
+    i {
+      color: black;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      margin-bottom: 10px;
     }
 }

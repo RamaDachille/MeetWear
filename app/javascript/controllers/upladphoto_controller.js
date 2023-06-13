@@ -2,22 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="upladphoto"
 export default class extends Controller {
-
-  static targets = ["image", "upload"]
+  static targets = [ "output", "input", "forminput"]
 
   connect() {
-    console.log(this.imageTarget, this.uploadTarget)
+    console.log(this.forminputTarget);
   }
-
-  display(event) {
-    const input = event.target
+  readURL(event) {
+    this.forminputTarget.classList.add("d-none")
+    const input = this.inputTarget
+    const output = this.outputTarget
     if (input.files && input.files[0]) {
       const reader = new FileReader();
-      reader.onload = (event) => {
-        this.imageTarget.src = event.currentTarget.result;
+      reader.onload = function () {
+        output.src = reader.result
       }
-      reader.readAsDataURL(input.files[0])
-      this.imageTarget.classList.remove('hidden');
+      reader.readAsDataURL(input.files[0]);
+    }
   }
-}
 }

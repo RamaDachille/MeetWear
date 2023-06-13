@@ -18,7 +18,13 @@ class CommentsController < ApplicationController
   end
 
   def like
-    raise
+    @comment = Comment.find(params[:comment_id])
+    @comment_like = CommentLike.find_by(comment: @comment, user: current_user)
+    if @comment_like
+      @comment_like.destroy
+    else
+      CommentLike.create(comment: @comment, user: current_user)
+    end
   end
 
   private

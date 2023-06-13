@@ -18,6 +18,7 @@
             <div class="icon">
               <%= link_to post_likes_path(post), data:{turbo_method: :post} do %>
                 <% if user_signed_in? %>
+                <%# eeeeeeee %>
                   <% if Like.where(post_id: post.id, user_id: current_user.id).empty? %>
                     <i class="fa-regular fa-star fa-lg" style="color: #ffffff;"></i>
                     <% else %>

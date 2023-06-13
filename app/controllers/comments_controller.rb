@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save!
+      Notification.create(user: current_user, post: @post, message: "Your post received a comment.")
       redirect_to post_comments_path(@post)
     else
       render :new, status: :unprocessable_entity
@@ -31,9 +32,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :post_id)
-  end
-
-  def create_notification
-    Notification.create(user: post.user, post: post, message: 'A new comment was posted on your post.')
   end
 end

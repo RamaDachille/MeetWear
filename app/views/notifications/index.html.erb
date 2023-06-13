@@ -6,12 +6,14 @@
 </div>
 
 <hr>
-
-<% current_user.notifications.order(created_at: :desc).each do |notification| %>
-  <div class="notification-card">
-    <p>Message: <%= notification.message %></p>
-    <p>User_id: <%= notification.user_id %></p>
-    <p>Post_id <%= notification.post_id %></p>
-    <p><%= notification.user_id %> has <strong>commented</strong> on <%= time_ago_in_words(notification.created_at) %> ago.</p>
-  </div>
+<% @notifications.order(created_at: :desc).each do |notification| %>
+  <% post = Post.find(notification.post_id) %>
+  <% if post.user_id == current_user.id %>
+    <div class="notification-card">
+      <p><strong><%= User.find(notification.user_id).user_name %></strong> has <strong>commented</strong> on your post.</p>
+      <p><%= time_ago_in_words(notification.created_at) %> ago</p>
+    </div>
+  <% else %>
+  <% end %>
+  <hr>
 <% end %>

@@ -157,7 +157,7 @@ post_one = Post.new(post_type: "Share",
 
                     post = create_pics(images_share[4], post_one.id, post_one)
                     post.save!
-                    
+
 10.times do |i|
   post = Post.new(post_type: "Share",
               description: Faker::Movies::Departed.quote,
@@ -165,8 +165,8 @@ post_one = Post.new(post_type: "Share",
                         'glamorous', 'smart casual', 'bohemian'].sample,
               occasion: ['party', 'business meeting', 'casual outing', 'wedding', 'formal event', 'workout', 'date night',
                         'vacation', 'interview', 'girl night'].sample,
-              brand_tag: ['canada goose', 'a.p.c.', 'prada', 'levis', 'nike', 'dickies', 'adidas', 'burbery', 'fred perry',
-                          'arket'].sample,
+              brand_tag: ['Moncler', 'A.P.C.', 'Stussy', 'Lee', 'Nike', 'Dickies', 'Adidas', 'Burbery', 'Fred Perry',
+                          'COS'].sample,
               size_rating: [1,2,3,4,5].sample,
               user: User.all.sample
             )

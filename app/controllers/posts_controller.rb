@@ -21,8 +21,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @feedback = Feedback.new
-    @comments = Comment.where(post_id: @post.id)
-    @feedbacks = Feedback.where(post_id: @post.id)
+    @comments = Comment.where(post_id: @post.id).order(created_at: :desc)
+    @feedbacks = Feedback.where(post_id: @post.id).order(created_at: :desc)
   end
 
   def new

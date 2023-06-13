@@ -26,6 +26,7 @@
                           required: true,
                           placeholder: "•••••••••",
                           input_html: { autocomplete: "new-password" } %>
+              <%= f.input :photo, as: :file, label: "Upload a profile photo", required: true %>
             </div>
 
             <div class="form-actions">

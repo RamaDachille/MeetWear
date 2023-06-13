@@ -1,12 +1,46 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+<div data-controller="slider2" id="slider">
+<%# PROFILE INFO %>
+
+<%= image_tag 'banner.png', class: "banner-pic" %>
+
+<div class= "user-info">
+  <%# current_user.id == params[:id] %>
+  <%# profile_user = User.find(current_user.id) %>
+  <% profile_user = User.find(params[:id]) %>
+  <%# profile_user = User.find(5) %>
+  <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
+  <p><strong><%= profile_user.user_name%></strong></p>
+</div>
+
+<%# POST/ FOLLOWERS/ FOLLOWING TAB %>
+<div class= "card-profile-s">
+  <div class="post-c">
+    <% share = @posts.where(post_type: 'Share').count  %>
+    <% ask = @posts.where(post_type: 'Ask').count %>
+    <% saved = SavedPost.where(user_id: current_user).count %>
+    <%= sum = share + ask + saved %>
+    <p>Posts</p>
+  </div>
+
+  <div class= "followers">
+    <p>100</p>
+    <p>Followers</p>
+  </div>
+
+  <div class= "following">
+    <p>100</p>
+    <p>Follwing</p>
+  </div>
+</div>
+<%= render "shared/slider_profile" %>
 
 <%# PROFILE PHOTO %>
 <% profile_user = User.find(current_user.id) %>
 <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key %>
 
 <%# OWNERS SHARE POSTS %>
-<h1>Your share posts</h1>
-<div class="profile-container">
+<div class="profile-container" data-slider-target="share">
   <% @posts.where(post_type: 'Share').each do |post| %>
     <div class="profile-images">
       <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
@@ -15,8 +49,7 @@
 </div>
 
 <%# OWNERS ASK POSTS %>
-<h1>Your ask posts</h1>
-<div class="profile-container">
+<div class="profile-container d-none" data-slider-target="ask">
   <% @posts.where(post_type: 'Ask').each do |post| %>
     <div class="profile-images">
       <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
@@ -25,8 +58,7 @@
 </div>
 
 <%# OWNERS SAVED POSTS %>
-<h1>Saved posts</h1>
-<div class="profile-container">
+<div class="profile-container d-none" data-slider-target="saved"  >
   <% SavedPost.where(user_id: current_user).each do |saved| %>
     <%# <p><% user = Post.find(saved.post_id).user_id %><%#= User.find(user).user_name %><%#</p> %>
     <div class="profile-images">
@@ -34,5 +66,8 @@
     </div>
   <% end %>
 </div>
+
+</div>
+
 
 <%= render "shared/footer" %>

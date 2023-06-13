@@ -115,3 +115,72 @@ input[type="radio"] {
 .enabled {
   color: red
 }
+
+.user-info {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-profile-s {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.post-c {
+  display: flex;
+  justify-content: center;
+}
+
+.followers {
+  display: flex;
+  align-items: center;
+}
+
+.following {
+  display: flex;
+  align-items: center;
+}
+#slider {
+  @media (max-width: 700px) {
+    .tabs {
+      transform: scale(0.6);
+    }
+  }
+
+  .glider {
+    position: absolute;
+    display: flex;
+    height: 59px;
+    width: 200px;
+    background-color: var(--secondary-color);
+    z-index: 1;
+    border-radius: 99px; // just a high number to create pill effect
+    transition: 0.25s ease-out;
+  }
+
+
+  .saved-glider {
+    transform: translateX(200%);
+  }
+  .ask-glider {
+    transform: translateX(100%);
+  }
+  .share-glider {
+    transform: translateX(0);
+  }
+
+
+  .ask-text {
+    color: #666666
+  }
+  .share-text {
+    color: #f9f9f9
+  }
+  .saved-text {
+    color: #666666
+  }
+
+}

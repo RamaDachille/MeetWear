@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   acts_as_favoritor
-
+  
+  has_many :notifications, dependent: :destroy
   has_many :followers, through: :user_followers
   has_many :followed, through: :user_followers
   has_one_attached :photo

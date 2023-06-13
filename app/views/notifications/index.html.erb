@@ -1,0 +1,15 @@
+<div class="ontop">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left" style="color: black"></i>
+  <% end %>
+  <p>Notifications</p>
+</div>
+
+<hr>
+
+<% current_user.notifications.order(created_at: :desc).each do |notification| %>
+  <div class="notification-card">
+    <p><%= notification.message %></p>
+    <p><%= notification.created_at %></p>
+  </div>
+<% end %>

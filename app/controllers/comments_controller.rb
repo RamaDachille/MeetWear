@@ -22,4 +22,8 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :post_id)
   end
+
+  def create_notification
+    Notification.create(user: post.user, post: post, message: 'A new comment was posted on your post.')
+  end
 end

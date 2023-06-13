@@ -27,7 +27,7 @@
               <p> <%= time_ago_in_words(comment.created_at) %></p>
             </div>
               <% if user_signed_in? %>
-                <% if Like.where(post_id: post.id, user_id: current_user.id).empty? %>
+                <%= link_to comment_like_path do %>
                   <i class="fa-regular fa-star fa-lg"></i>
                 <% end %>
               <% end %>

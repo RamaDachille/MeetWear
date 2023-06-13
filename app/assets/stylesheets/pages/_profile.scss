@@ -13,3 +13,35 @@
   width: 100%;
   height: auto;
 }
+
+.user-info {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-profile-s {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.post-c {
+  display: flex;
+  justify-content: center;
+}
+
+.followers {
+  display: flex;
+  align-items: center;
+}
+
+.following {
+  display: flex;
+  align-items: center;
+}
+
+.posts-block {
+  margin-bottom: 115px;
+}

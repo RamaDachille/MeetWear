@@ -20,17 +20,22 @@
           </div>
         </div>
 
-        <div class="content">
+        <div class="content" data-controller="like" data-id=<%= comment.id %>>
           <div id="comment<%= comment.id %>">
             <p><%= comment.content %></p>
             <div id="time">
               <p> <%= time_ago_in_words(comment.created_at) %></p>
             </div>
               <% if user_signed_in? %>
-                <% if Like.where(post_id: post.id, user_id: current_user.id).empty? %>
-                  <i class="fa-regular fa-star fa-lg"></i>
+                <% if CommentLike.find_by(comment: comment, user: current_user) %>
+                  <i class="fa-solid fa-star" data-action="click->like#liker"></i>
+                <% else %>
+                  <i class="fa-regular fa-star" data-action="click->like#liker"></i>
                 <% end %>
               <% end %>
+          </div>
+          <div class="icon-text">
+                <p class="i-2" data-like-target="counter"><%= CommentLike.where(comment: comment).count%></p>
           </div>
             </div>
         </div>

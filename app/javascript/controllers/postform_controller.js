@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["input", "container", "adam", "button"]
 
   connect() {
-    console.log("hello from hello", this.inputTarget, this.containerTarget, this.adamTarget, this.buttonTarget)
+    console.log(this.inputTarget, this.containerTarget, this.adamTarget, this.buttonTarget)
     this.hashtagArray=[]
     this.preventForm()
     this.createTags()

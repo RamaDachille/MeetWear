@@ -13,9 +13,8 @@
   <div class= "comments">
       <% @comments.each do |comment| %>
         <div class="card-all-comments">
-
-        <div class= "user-info">
-          <%= image_tag 'avatar.png', class: "profile-pic" %>
+          <div class= "user-info">
+            <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
           <div class= "username-top">
           <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
           </div>
@@ -28,7 +27,7 @@
               <p> <%= time_ago_in_words(comment.created_at) %></p>
             </div>
           </div>
-          </div>
+            </div>
         </div>
       <% end %>
 

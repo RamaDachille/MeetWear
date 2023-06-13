@@ -1,59 +1,65 @@
-<main id="cardv2">
-  <div class="share-card">
-    <div class="gradient">
-      <div class="grad-and-icons">
+<% @posts.each do |post| %>
+  <main id="cardv2">
+    <div class="share-card">
 
-        <% if user_signed_in? %>
-          <%= link_to "Give advice!", post_path(post), class: "round-button text-decoration-none" %>
-        <% else %>
-          <%= link_to "Give advice!", new_user_session_path, class: "round-button text-decoration-none"%>
-        <% end %>
+      <div class="gradient">
+        <div class="grad-and-icons">
 
-        <div class="icons-for-grad">
+          <% if user_signed_in? %>
+              <%= link_to "Give advice!", post_path(post), class: "round-button text-decoration-none" %>
+            <% else %>
+              <%= link_to "Give advice!", new_user_session_path, class: "round-button text-decoration-none"%>
+          <% end %>
 
-          <div class="icon-container">
-            <div class="icon">
-              <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+          <div class="icons-for-grad">
+
+            <div class="icon-container">
+              <div class="icon">
+                <a href="<%= post_path(post) if user_signed_in? %>">
+                  <i class="fa-regular fa-comment fa-lg" style="color: #ffffff;"></i>
+                </a>
+              </div>
+              <div class="icon-text">
+                <p class="i-1"><%= Feedback.where(post_id: post).count %></p>
+              </div>
             </div>
-            <div class="icon-text">
-              <p class="i-1"><%= Feedback.where(post_id: post).count %></p>
-            </div>
-          </div>
 
-          <div class="icon-container">
-            <div class="icon">
-              <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
-                <% if user_signed_in? %>
-                  <% if SavedPost.where(post_id: post.id, user_id: current_user.id).empty? %>
-                    <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
-                  <% else %>
-                    <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>
+            <div class="icon-container">
+              <div class="icon">
+                <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
+                  <% if user_signed_in? %>
+                      <% if SavedPost.where(post_id: post.id, user_id: current_user.id).empty? %>
+                          <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                        <% else %>
+                          <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                      <% end %>
+                    <% else %>
+                      <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
                   <% end %>
-                <% else %>
-                  <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
                 <% end %>
-              <% end %>
+              </div>
+              <div class="icon-text">
+                <p class="i-3"><%= SavedPost.where(post_id: post).count %></p>
+              </div>
             </div>
-            <div class="icon-text">
-              <p class="i-3"><%= SavedPost.where(post_id: post).count %></p>
-            </div>
+
           </div>
-        </div>
 
-        <div>
-          <% user = User.find(post.user_id) %>
-          <%= cl_image_tag user.photo.key, class: "profile-pic" if user.photo.key%>
-        </div>
+          <div>
+            <% user = User.find(post.user_id) %>
+            <%= cl_image_tag user.photo.key, class: "profile-pic" if user.photo.key %>
+          </div>
 
-        <div class="username-top">
-        <p><strong><%= User.find(post.user_id).user_name %></strong></p>
-        </div>
+          <div class="username-top">
+            <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+          </div>
 
-        <div>
-          <%= cl_image_tag post.photo.key, class:"card-img" if post.photo.key%>
+          <div>
+            <%= cl_image_tag post.photo.key, class:"card-img" if post.photo.key%>
+          </div>
         </div>
       </div>
-    </div>
+
       <div class="card-text">
         <div class="top-t">
         <p><strong><%= User.find(post.user_id).user_name %></strong></p>
@@ -61,10 +67,52 @@
               <div class="medium-t">
                 <p><strong>Occasion: </strong><%= post.occasion %></p>
               </div>
-                <div class="low-t">
-                 <p><%= time_ago_in_words(post.created_at) %></p>
-                </div>
+              <div class="icon-text">
+                <p class="i-1"><%= Feedback.where(post_id: post).count %></p>
+              </div>
+            </div>
 
+            <div class="icon-container">
+              <div class="icon">
+                <%= link_to post_saved_posts_path(post), data:{turbo_method: :post} do %>
+                  <% if SavedPost.where(post_id: post).empty? %>
+                      <i class="fa-regular fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                    <% else %>
+                      <i class="fa-solid fa-bookmark fa-lg" style="color: #ffffff;"></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="icon-text">
+                <p class="i-3"><%= SavedPost.where(post_id: post).count %></p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <%= cl_image_tag  User.find(post.user_id).photo.key, class: "profile-pic" %>
+          </div>
+
+          <div class="username-top">
+          <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+          </div>
+
+          <div>
+            <%= cl_image_tag post.photo.key, class:"card-img"%>
+          </div>
+        </div>
       </div>
-  </div>
-</main>
+        <div class="card-text">
+          <div class="top-t">
+          <p><strong><%= User.find(post.user_id).user_name %></strong></p>
+          </div>
+                <div class="medium-t">
+                  <p><strong>Occasion: </strong><%= post.occasion %></p>
+                </div>
+                  <div class="low-t">
+                  <p><%= time_ago_in_words(post.created_at) %></p>
+                  </div>
+
+        </div>
+    </div>
+  </main>
+<% end %>

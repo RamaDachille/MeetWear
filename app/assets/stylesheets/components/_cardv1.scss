@@ -1,15 +1,16 @@
 .cardv1 {
 
     .share-card {
-      width: 360px;
+      width: 90vw;
       // height: 640px;
       border-radius: 12px;
       // border: 1px solid black;
       border: #FFFFFF;
-      margin: 10px;
+      margin: auto;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
       margin-bottom: 35px;
       padding-bottom: 3px;
+      margin-top: 43px
     }
 
   .grad-and-icons {
@@ -31,7 +32,7 @@
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
-    width: 404px;
+    width: 96vw;
     // padding-bottom: 5px;
     color:#FFFFFF;
 
@@ -106,7 +107,7 @@ p{
 
 
     .card-img {
-      width: 360px;
+      width: 90vw;
       height: 450px;
       border-radius: 12px 12px 0px 0px;
       object-fit: cover;

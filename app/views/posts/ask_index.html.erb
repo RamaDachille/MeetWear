@@ -1,8 +1,10 @@
 <%= render "shared/navbar" %>
   <div class="main-container">
     <%= render "shared/slider" %>
-    <div id="ask-cards" data-slider-target="cards">
+
+    <div data-slider-target="cards">
       <%= render "page_ask_index", posts: @posts %>
     </div>
+
   </div>
 <%= render "shared/footer" %>

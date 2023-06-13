@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :saved_posts, only: %i[create destroy]
     resources :likes, only: %i[create destroy]
   end
-
+  resources :comments, only: %i[edit destroy] do
+    get 'like', to: 'comments#like'
+  end
   resources :cocktails, only: :index do
     member do
       post 'toggle_favorite', to: "cocktails#toggle_favorite"

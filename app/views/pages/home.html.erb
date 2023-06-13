@@ -3,10 +3,9 @@
     <div data-action="click->slider#loadCards">
       <%= render "shared/slider" %>
     </div>
-    <div id="home" >
-      <div class="cards" data-slider-target="cards">
-            <%= render "posts/share_index", posts: @posts %>
-      </div>
+
+    <div data-slider-target="cards">
+      <%= render "posts/share_index", posts: @posts %>
     </div>
   </div>
 

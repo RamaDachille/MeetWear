@@ -11,38 +11,49 @@
         </div>
       </div>
 
-    <div class= "comments">
-        <% @comments.each do |comment| %>
-          <div class="card-all-comments">
-            <div class= "user-info">
-              <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
-            <div class= "username-top">
-            <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
-            </div>
+     <%# </div> %>
+
+  <div class= "comments">
+      <% @comments.each do |comment| %>
+        <div class="card-all-comments">
+          <div class= "user-info">
+            <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
+          <div class= "username-top">
+          <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
           </div>
+        </div>
 
-          <div class="content">
-            <div id="comment<%= comment.id %>">
-              <p><%= comment.content %></p>
-              <div id="time">
-                <p> <%= time_ago_in_words(comment.created_at) %></p>
-              </div>
+        <div class="content" data-controller="like" data-id=<%= comment.id %>>
+          <div id="comment<%= comment.id %>">
+            <p><%= comment.content %></p>
+            <div id="time">
+              <p> <%= time_ago_in_words(comment.created_at) %></p>
             </div>
-              </div>
+              <% if user_signed_in? %>
+                <% if CommentLike.find_by(comment: comment, user: current_user) %>
+                  <i class="fa-solid fa-star" data-action="click->like#liker"></i>
+                <% else %>
+                  <i class="fa-regular fa-star" data-action="click->like#liker"></i>
+                <% end %>
+              <% end %>
           </div>
-        <% end %>
+          <div class="icon-text">
+                <p class="i-2" data-like-target="counter"><%= CommentLike.where(comment: comment).count%></p>
+          </div>
+            </div>
+        </div>
+      <% end %>
 
 
-        <%# <div data-controller="comment">
-          <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>
-          <div class="d-none" data-comment-target="form"> %>
-            <%#= simple_form_for [@post, @comment] do |f| %>
-              <%#= f.input :content, label: false %>
-              <%#= f.submit "Post"%>
-            <%# end %>
-          <%# </div>
-        </div> %>
-    </div>
+       <%# <div data-controller="comment">
+        <p class="" data-comment-target="btn" data-action="click->comment#toogle"><strong>Add a comment <i class="fa-regular fa-comment" data-comment-target="btn" data-action="click->comment#toogle"></i></strong></p>
+        <div class="d-none" data-comment-target="form"> %>
+          <%#= simple_form_for [@post, @comment] do |f| %>
+            <%#= f.input :content, label: false %>
+            <%#= f.submit "Post"%>
+          <%# end %>
+        <%# </div>
+       </div> %>
   </div>
       <div class="space-bar"></div>
       <div class="add-comment">

@@ -1,0 +1,37 @@
+<% if no_feedback %>
+  <div class= "container">
+      <div>
+        <div class="text-center">
+          <h4><strong>Give a feedback</strong></h4>
+        </div>
+        <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
+          <div class="row justify-content-between">
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
+            </div>
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+          </div>
+          <div class="row justify-content-between">
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+            <div class="border-holder">
+              <div class="ourline"></div>
+            </div>
+          </div>
+          <div>
+            <%= f.input :feedback,  label: "Feedback" %>
+          </div>
+          <div class="buttys-container">
+            <%= f.button :submit, "Submit Feedback", class: "butters" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

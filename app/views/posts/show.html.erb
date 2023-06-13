@@ -41,31 +41,45 @@
 
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
 <% if no_feedback %>
-  <div class= "feedback-form">
-    <div class="feedback-styling">
-      <div class="centering-feedback">
-        <h4><strong>Give a feedback</strong></h4>
-      </div>
+  <div class= "container">
       <div>
+        <div class="text-center">
+          <h4 style="color:black;"><strong>Give a feedback</strong></h4>
+        </div>
+        <br>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
-          <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
-          <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
-          <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
-          <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
+          <div class="row justify-content-between">
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :occasion_rating, collection: (1..5).to_a, label: "Occasion", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}}  %>
+            </div>
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :color_rating, collection: (1..5).to_a, label: "Rating", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+          </div>
+          <div class="row justify-content-between">
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :size_rating, collection: (1..5).to_a, label: "Size", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+            <div class="col-6 d-flex justify-content-center text-center">
+              <%= f.input :overall_style_rating, collection: (1..5).to_a, label: "Overal Style", input_html: {data: {controller: "star-rating"}}   %>
+            </div>
+          </div>
+          <br>
           <div class="border-holder">
             <div class="ourline"></div>
           </div>
-          <div>
+          <div class="row justify-content-center">
             <%= f.input :feedback,  label: "Feedback" %>
           </div>
           <div class="buttys-container">
-            <%= f.submit "Send your feedback", class:"butters" %>
+            <%= f.button :submit, "Submit Feedback", class: "butters" %>
           </div>
         <% end %>
       </div>
-
-      </div>
+    </div>
+  </div>
 <% end %>
+
     <div class= "card-feedback-average <%= no_feedback ? 'd-none' : '' %>">
     <div class= "centering-average">
 

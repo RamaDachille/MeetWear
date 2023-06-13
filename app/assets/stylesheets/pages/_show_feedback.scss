@@ -27,15 +27,13 @@
   margin-bottom: 50px;
 }
 
-
-.buttys-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .feedback-form{
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .butters {
-  width: 100%;
   background: linear-gradient(to right, #9C448C, #661A58);
   color: white;
   border-radius: 15px;
@@ -44,7 +42,16 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   font-size: 17px;
   font-family: $my-font;
+  padding: 0px 111px;
 }
+
+.buttys-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 .feedback-img {
   border-radius: 12px 12px 0px 0px;
@@ -52,20 +59,19 @@
   margin-bottom: 8px;
 }
 
+
 .border-holder{
   display: flex;
-    justify-content: center;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  .ourline{
-    height: 2px;
-    width: 99px;
-    background-color: #e1e1e1;
-    margin-bottom: 20px;
-    margin-top: 6px;
-    border-radius: 50px;
-  }
+  justify-content: center;
+}
+
+.ourline{
+  height: 2px;
+  width: 99px;
+  background-color: #e1e1e1;
+  margin-bottom: 20px;
+  margin-top: 6px;
+  border-radius: 50px;
 }
 
 .text-in{
@@ -106,7 +112,6 @@ color: black;
 font-family: $my-font;
 margin-left: 10px;
 margin-right: 10px;
-
 }
 
 
@@ -117,14 +122,14 @@ margin-right: 10px;
   margin-bottom: 4px;
   color: rgb(0, 0, 0);
 
-.card-surrounding{
-min-height: 250px;
-width: 400px;
-background-color: white;
-border-radius: 12px;
-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-margin-top: 20px;
-}
+  .card-surrounding{
+  min-height: 250px;
+  width: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: 20px;
+  }
 }
 
 
@@ -143,6 +148,19 @@ margin-top: 20px;
 
 }
 
+.centering-stars{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.centering-feedback{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: rgb(0, 0, 0);
+}
 
 .centering-average2{
 
@@ -152,13 +170,6 @@ margin-top: 20px;
   margin-bottom: 8px;
   color: rgb(142, 142, 142);
 
-.centering-feedback{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;
-  color: rgb(0, 0, 0);
-}
 
   .h4 {
     font-size: 15px;
@@ -178,18 +189,6 @@ margin-top: 20px;
 
   i{
     color: rgb(255, 217, 3);
-  }
-  }
-
-
-
-#new_feedback{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 90px;
-
-  div {
-    text-align: center;
   }
 }
 
@@ -234,5 +233,8 @@ margin-top: 20px;
   color: rgb(124, 124, 124);
 }
 
+.inside-t{
+  color: rgb(112, 112, 112);
+}
 
 }

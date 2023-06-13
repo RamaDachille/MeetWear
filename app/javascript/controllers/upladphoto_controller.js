@@ -8,7 +8,8 @@ export default class extends Controller {
     console.log(this.forminputTarget);
   }
   readURL(event) {
-    this.forminputTarget.classList.add("d-none")
+    this.forminputTarget.classList.add("hide-photo")
+    this.outputTarget.classList.remove("d-none")
     const input = this.inputTarget
     const output = this.outputTarget
     if (input.files && input.files[0]) {

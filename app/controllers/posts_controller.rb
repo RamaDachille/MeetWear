@@ -31,6 +31,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.post_type = params[:post_type]
     @post.brand_tag = params[:commit]
     @post.user_id = current_user.id
     if @post.save!

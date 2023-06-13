@@ -11,17 +11,17 @@
       <div data-upladphoto-target="forminput">
         <%= f.input :photo, as: :file, input_html: { hidden: true, data: { action: "change->upladphoto#readURL", upladphoto_target: "input" } }, wrapper_html: { class: "add-image-card" }, label: "+", label_html: { class: 'plus' } %>
       </div>
-        <img src="" class="upload-photo" alt="" data-upladphoto-target="output">
+        <img src="" class="upload-photo d-none" alt="" data-upladphoto-target="output">
     </div>
       <%# f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
     <div class="container" data-controller="slider">
       <div class="tabs" data-action="click->slider#toggle">
         <%= link_to new_post_path() do %>
-          <input type="radio" value="Share" id="radio-1" name="tabs" data-slider-target="shareInput"/>
+          <input type="radio" value="Share" id="radio-1" name="post_type" data-slider-target="shareInput"/>
         <% end %>
         <label data-slider-target="share" class="tab" for="radio-1">Share</label>
         <%= link_to ask_feed_path do %>
-          <input type="radio" value="Ask" id="radio-2" name="tabs" data-slider-target="askInput" checked/>
+          <input type="radio" value="Ask" id="radio-2" name="post_type" data-slider-target="askInput" checked/>
         <% end %>
         <label data-slider-target="ask" class="tab ask-text" for="radio-2">Ask</label>
         <span data-slider-target="glider"  class="glider ask-glider"></span>

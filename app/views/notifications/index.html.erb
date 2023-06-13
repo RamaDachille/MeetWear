@@ -9,7 +9,9 @@
 
 <% current_user.notifications.order(created_at: :desc).each do |notification| %>
   <div class="notification-card">
-    <p><%= notification.message %></p>
-    <p><%= notification.created_at %></p>
+    <p>Message: <%= notification.message %></p>
+    <p>User_id: <%= notification.user_id %></p>
+    <p>Post_id <%= notification.post_id %></p>
+    <p><%= notification.user_id %> has <strong>commented</strong> on <%= time_ago_in_words(notification.created_at) %> ago.</p>
   </div>
 <% end %>

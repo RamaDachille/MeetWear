@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @posts = Post.where(post_type: "Share").order(created_at: :desc)
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "posts/share_index", locals: { posts: @posts }, formats: [:html] }
+    end
   end
 
   def profile

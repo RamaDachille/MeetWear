@@ -7,20 +7,34 @@
 
 <div>
   <%= simple_form_for @post,  data: { postform_target: "adam",  action: "submit->postform#send" } do |f| %>
-    <%= f.input :photo, as: :file, input_html: { hidden: true }, wrapper_html: { class: "add-image-card" },label: "+" , label_html: { class: 'plus' }%>
-    <%= f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
+    <div data-controller="upladphoto" data-upladphoto-target="image">
+      <%= f.input :photo, as: :file, input_html: { hidden: true, data: {action: "change->upladphoto#display"} }, wrapper_html: { class: "add-image-card" },label: "+" , label_html: { class: 'plus' } %>
+        <%# cl_image_tag photo.photo.key, height: 100, width: 200, crop: :fill, data: { target: "upload"} %>
+    </div>
+
+
+    <%# f.select :post_type, options_for_select([["Share your style", "Share"], ["Ask for feedback", "Ask"]]) %>
+    <div class="container" data-controller="slider">
+      <div class="tabs" data-action="click->slider#toggle">
+        <%= link_to new_post_path() do %>
+          <input type="radio" value="Share" id="radio-1" name="tabs" data-slider-target="shareInput"/>
+        <% end %>
+        <label data-slider-target="share" class="tab" for="radio-1">Share</label>
+        <%= link_to ask_feed_path do %>
+          <input type="radio" value="Ask" id="radio-2" name="tabs" data-slider-target="askInput" checked/>
+        <% end %>
+        <label data-slider-target="ask" class="tab ask-text" for="radio-2">Ask</label>
+        <span data-slider-target="glider"  class="glider ask-glider"></span>
+      </div>
+    </div>
     <div class="drop-down">
       <%= f.label :occasion, "Occasion"%>
         <%= f.select :occasion, options_for_select([
           ["Party", "Party"],
-          ["Business Meeting", "Business Meeting"],
-          ["Casual Outing", "Casual Outing"],
+          ["Business", "Business Meeting"],
           ["Wedding", "Wedding"],
-          ["Formal Event", "Formal Event"],
-          ["Workout", "Workout"],
-          ["Date Night", "Date Night"],
+          ["Date", "Date Night"],
           ["Vacation", "Vacation"],
-          ["Interview", "Interview"]
         ]) %>
     </div>
     <div class="drop-down">

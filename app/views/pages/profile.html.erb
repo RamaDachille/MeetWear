@@ -1,5 +1,6 @@
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
-<div data-controller="slider" id="slider">
+<div data-controller="slider2" id="slider">
+<%# PROFILE INFO %>
 
   <%# PROFILE INFO %>
 
@@ -37,7 +38,6 @@
 
   <div class="posts-block">
     <%# OWNERS SHARE POSTS %>
-
     <div class="profile-container" data-slider-target="share">
       <% @posts.where(post_type: 'Share').each do |post| %>
         <div class="profile-images">

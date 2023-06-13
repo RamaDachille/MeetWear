@@ -7,6 +7,10 @@ class PostsController < ApplicationController
 
   def ask_index
     @posts = Post.where(post_type: "Ask").order(created_at: :desc)
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "page_ask_index", locals: { posts: @posts }, formats: [:html] }
+    end
   end
 
   def share_index

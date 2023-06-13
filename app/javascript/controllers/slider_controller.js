@@ -1,48 +1,39 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="slider-profile"
+// Connects to data-controller="slider"
 export default class extends Controller {
-  static targets = ["share","ask","saved","glider"];
+
+  static targets = ["share", "ask", "glider", "shareInput", "askInput", "cards"]
 
   connect() {
+    console.log(this.shareInputTarget.checked, this.askInputTarget.checked)
   }
 
-  ask(e) {
-    this.askTarget.classList.remove("d-none")
-    this.shareTarget.classList.add("d-none")
-    this.savedTarget.classList.add("d-none")
-
-    this.gliderTarget.classList = "glider ask-glider"
-    this.#colorLabels(e.target.nextSibling.nextSibling)
-
+  toggle(event) {
+    event.preventDefault()
+    this.shareTarget.classList.toggle("share-text")
+    this.askTarget.classList.toggle("ask-text")
+    this.gliderTarget.classList.toggle("share-glider")
+    this.gliderTarget.classList.toggle("ask-glider")
+    if (this.shareInputTarget.hasAttribute("checked")) {
+      this.shareInputTarget.removeAttribute("checked")
+      this.askInputTarget.setAttribute("checked", "")
+    }  else {
+      this.shareInputTarget.setAttribute("checked", "")
+      this.askInputTarget.removeAttribute("checked")
+    }
   }
 
-  share(e) {
-    this.askTarget.classList.add("d-none")
-    this.shareTarget.classList.remove("d-none")
-    this.savedTarget.classList.add("d-none")
-
-    this.gliderTarget.classList = "glider share-glider"
-    this.#colorLabels(e.target.nextSibling.nextSibling)
-
-
-  }
-
-  saved(e) {
-    this.askTarget.classList.add("d-none")
-    this.shareTarget.classList.add("d-none")
-    this.savedTarget.classList.remove("d-none")
-
-    this.gliderTarget.classList = "glider saved-glider"
-    this.#colorLabels(e.target.nextSibling.nextSibling)
-
-
-  }
-
-  #colorLabels(l){
-    document.querySelectorAll("#slider label").forEach(label => {
-      label.style = 'color: grey';
-    });
-    l.style = 'color: white';
+  loadCards() {
+    let url = window.location.origin
+    if (this.askInputTarget.hasAttribute("checked")) {
+      url = `${url}/ask-feed`
+    }
+    console.log(url)
+    fetch(url, { headers: {"Accept": "text/plain"}})
+      .then(response => response.text())
+      .then((data) => {
+        this.cardsTarget.innerHTML = data
+      })
   }
 }

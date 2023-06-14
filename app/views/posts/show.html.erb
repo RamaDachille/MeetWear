@@ -1,12 +1,11 @@
 <div id="show-feed">
 
 <div class="ontop">
-<%= link_to :back do %>
+<%= link_to ask_feed_path do %>
   <i class="fa-solid fa-arrow-left" style="color: black"></i>
 <% end %>
 <p> Feedback </p>
 </div>
-
 
 <div class="form-whole">
 
@@ -25,10 +24,10 @@
     <p><strong>Brands: </strong><%= @post.brand_tag %></p>
   </div>
 
-  <div class="on-bottom">
-    <p><%= time_ago_in_words(@post.created_at) %> ago</p>
-  </div>
-</div>
+  <%# <div class="on-bottom"> %>
+    <%# <p><%= time_ago_in_words(@post.created_at) ago</p> %>
+  <%# </div> %>
+<%# </div> %>
 
 
 <div class="border-holder">
@@ -45,7 +44,7 @@
   <div class= "container">
       <div>
         <div class="text-center">
-          <h4 style="color:black;"><strong>Give a feedback</strong></h4>
+          <h4 style="color:black;"><strong>Leave feedback</strong></h4>
         </div>
         <br>
         <%= simple_form_for([@post, @feedback], data: { controller: "submit" }) do |f| %>
@@ -73,7 +72,7 @@
             <%= f.input :feedback,  label: "Feedback" %>
           </div>
           <div class="buttys-container">
-            <%= f.button :submit, "Submit Feedback", class: "butters" %>
+            <%= f.button :submit, "submit", class: "butters" %>
           </div>
         <% end %>
       </div>

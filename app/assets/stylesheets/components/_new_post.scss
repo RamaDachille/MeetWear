@@ -13,7 +13,8 @@
 
 .add-image-card {
   height: 300px;
-  border-radius: 5%;
+  border-radius: 12px 12px 0px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +23,9 @@
   background: linear-gradient(-60deg, white, #ae68dd, #7b41a0, #622184);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+
+
+
 
   .plus {
     color: white;

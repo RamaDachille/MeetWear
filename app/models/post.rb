@@ -5,6 +5,7 @@ class Post < ApplicationRecord
 
   acts_as_favoritor
 
+  has_many :notifications, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :saved_posts, dependent: :destroy
   has_many :comments, dependent: :destroy

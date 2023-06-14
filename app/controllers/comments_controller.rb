@@ -11,9 +11,20 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save!
+      Notification.create(user: current_user, post: @post, message: "Your post received a comment.")
       redirect_to post_comments_path(@post)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def like
+    @comment = Comment.find(params[:comment_id])
+    @comment_like = CommentLike.find_by(comment: @comment, user: current_user)
+    if @comment_like
+      @comment_like.destroy
+    else
+      CommentLike.create(comment: @comment, user: current_user)
     end
   end
 

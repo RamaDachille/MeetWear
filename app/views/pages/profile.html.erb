@@ -74,7 +74,7 @@
 
   <div class="posts-block">
     <%# OWNERS SHARE POSTS %>
-    <div class="profile-container" data-slider-target="share">
+    <div class="profile-container" data-slider2-target="share">
       <% @posts.where(post_type: 'Share').each do |post| %>
         <div class="profile-images">
           <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
@@ -83,7 +83,7 @@
     </div>
 
     <%# OWNERS ASK POSTS %>
-    <div class="profile-container d-none" data-slider-target="ask">
+    <div class="profile-container d-none" data-slider2-target="ask">
       <% @posts.where(post_type: 'Ask').each do |post| %>
         <div class="profile-images">
           <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
@@ -92,7 +92,7 @@
     </div>
 
     <%# OWNERS SAVED POSTS %>
-    <div class="profile-container d-none" data-slider-target="saved"  >
+    <div class="profile-container d-none" data-slider2-target="saved"  >
       <% if current_user.id == params[:id].to_i %>
         <% SavedPost.where(user_id: current_user).each do |saved| %>
           <%# <p><% user = Post.find(saved.post_id).user_id %><%#= User.find(user).user_name %><%#</p> %>

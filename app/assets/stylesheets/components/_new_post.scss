@@ -182,3 +182,16 @@
       outline: none !important;
     }
 }
+
+.upload-photo {
+  height: 300px;
+  width: 100%;
+  border-radius: 5%;
+  object-fit: cover;
+
+}
+
+.hide-photo {
+  opacity: 0;
+  height: 0;
+}

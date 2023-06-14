@@ -8,7 +8,7 @@
 
 <%# COUNTER %>
 <hr><p>You have <strong><%= notification_count = Notification.joins(:post).where(posts: { user_id: current_user.id }).count %></strong> unread <%= (notification_count == 1)? "notification" : "notifications" %></p>
-
+  
 <%# NOTIFICATIONS %>
 <% @notifications.order(created_at: :desc).each do |notification| %>
   <% post = Post.find(notification.post_id) %>

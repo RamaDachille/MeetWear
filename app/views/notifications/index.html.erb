@@ -7,8 +7,9 @@
 </div>
 
 <%# COUNTER %>
-<hr><p>You have <strong><%= notification_count = Notification.joins(:post).where(posts: { user_id: current_user.id }).count %></strong> unread <%= (notification_count == 1)? "notification" : "notifications" %></p>
-  
+<hr>
+<p>You have <strong><%= notification_count = Notification.joins(:post).where(posts: { user_id: current_user.id }).count %></strong> unread <%= (notification_count == 1)? "notification" : "notifications" %></p>
+<hr>
 <%# NOTIFICATIONS %>
 <% @notifications.order(created_at: :desc).each do |notification| %>
   <% post = Post.find(notification.post_id) %>
@@ -24,8 +25,8 @@
       <% end %>
       <p><%= time_ago_in_words(notification.created_at) %> ago</p>
     </div>
+    <hr>
   <% end %>
-  <hr>
 <% end %>
 
 <%= render "shared/footer" %>

@@ -12,13 +12,13 @@
     </div>
     <div class= "comments">
       <% @comments.each do |comment| %>
-        <div class="card-all-comments" data-controller="like">
+        <div class="card-all-comments" data-controller="like" data-path="comments" data-id=<%= comment.id %> data-method="like">
           <div class= "user-info">
             <%= cl_image_tag comment.user.photo.key, class: "profile-pic" if comment.user.photo.key%>
             <div class= "username-top">
               <p><strong><%= User.find(comment.user_id).user_name%></strong></p>
             </div>
-            <div class="content"  data-id=<%= comment.id %>>
+            <div class="content" >
                 <% if user_signed_in? %>
                   <% if CommentLike.find_by(comment: comment, user: current_user) %>
                       <i class="fa-solid fa-star" data-action="click->like#liker"></i>

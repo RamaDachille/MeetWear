@@ -20,7 +20,7 @@
 }
 
 #show-feed{
-  background-color: white;
+  background-color: #F5F5F5;
   font-family: $my-font;
 
 .form-whole{
@@ -34,11 +34,11 @@
 // }
 
 .butters {
-  background: linear-gradient(to right, #9C448C, #661A58);
+  background: $gradient;
   color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   border: none;
-  height: 47px;
+  height: 40px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   font-size: 17px;
   font-family: $my-font;
@@ -49,6 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 
@@ -237,4 +238,10 @@ align-items: center;
   color: rgb(112, 112, 112);
 }
 
+}
+
+#feedback_feedback {
+  border-radius: 10px;
+  background-color: white;
+  border: none;
 }

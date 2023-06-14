@@ -27,21 +27,24 @@
     <% profile_user = User.find(params[:id]) %>
     <%# profile_user = User.find(5) %>
       <div class="top-profile-content">
+
         <div class="avatar">
-          <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
+          <%= cl_image_tag profile_user.photo.key, crop: :fill if profile_user.photo.key%>
         </div>
 
-  <div class="un-and-bio">
-    <div class="username row justify-content-center mt2">
-      <p style="color:white;"><strong><%= profile_user.user_name%></strong></p>
-    </div>
-      <div class="bio row justify-content-center">
-        <span style="color:white;"> Biography</span>
+        <div class="un-and-bio">
+
+          <div class="username">
+            <p style="color:white;"><strong><%= profile_user.user_name%></strong></p>
+          </div>
+
+          <div class="bio">
+            <span style="color:white;"> Biography</span>
+          </div>
+
+        </div>
       </div>
   </div>
-
-
-</div>
 
   <%# POST/ FOLLOWERS/ FOLLOWING TAB %>
 

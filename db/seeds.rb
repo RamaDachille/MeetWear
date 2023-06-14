@@ -152,7 +152,7 @@ post_one = Post.new(post_type: "Share",
                     occasion: "Casual Outing",
                     brand_tag: "Nike",
                     size_rating: [1,2,3,4,5].sample,
-                    user_id: (1..10).to_a.sample)
+                    user: User.all.sample)
                     post_one.save!
 
                     post = create_pics(images_share[4], post_one.id, post_one)

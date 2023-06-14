@@ -39,8 +39,9 @@
 <% if @post.post_type == "Ask" %>
   <div class= "ask">
 
+<% post_owner = current_user.id == @post.user_id%>
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
-<% if no_feedback %>
+<% if no_feedback && !post_owner %>
   <div class= "container">
       <div>
         <div class="text-center">
@@ -80,7 +81,7 @@
   </div>
 <% end %>
 
-    <div class= "card-feedback-average <%= no_feedback ? 'd-none' : '' %>">
+    <div class= "card-feedback-average <%= (no_feedback && !post_owner) ? 'd-none' : '' %>">
     <div class= "centering-average">
 
       <h4><strong>Feedback average</strong></h4>
@@ -115,7 +116,7 @@
     <div class="ourline"></div>
     </div>
 
-    <div class= "card-feedback  <%= no_feedback ? 'd-none' : '' %>">
+    <div class= "card-feedback  <%= (no_feedback && !post_owner) ? 'd-none' : '' %>">
     <div class= "centering-average">
       <h4><strong>Feedbacks</strong></h4>
       </div>

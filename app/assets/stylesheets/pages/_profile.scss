@@ -27,17 +27,19 @@
   justify-content: center;
   width: 100%;
 
-  .avatar {
+  .pfp {
     position: absolute;
+    overflow: hidden;
     width: 100px;
-    /* height: 427px; */
-    top: 30px;
+    height: 96px;
+    border-radius: 50%;
+    right: 146px;
+    top: 32px;
+    // img {
+    //   width: 100px;
+    //   height: 100px;
 
-    img {
-      border-radius: 50%;
-      width: 110px;
-      height: 96px;
-    }
+    // }
   }
 
   .banner {
@@ -87,10 +89,14 @@
   align-items: flex-start;
 }
 
-.profile-images img {
-  width: 100%;
-  height: auto;
+.profile-images {
+  margin-top: 7px;
+  img {
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
+  }
 }
+
 
 .user-info {
   margin-top: 25px;
@@ -107,7 +113,7 @@
   border-radius: 20px;
   height: 64px;
   margin-left: -4px;
-  margin-right: -12px;
+  margin-right: -6px;
   box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
 
   .followers, .following, .post-c {
@@ -121,18 +127,18 @@
   }
 
   .followers {
-    padding-left: 24px;
+    padding-left: 16px;
     padding-right: -13px;
   }
 
   .following{
     padding-left: 41px;
-    padding-right: 38px;
+    padding-right: 30px;
   }
 
   .post-c{
     padding-right: 29px;
-    padding-left: 30px;
+    padding-left: 38px;
   }
 
   p {
@@ -149,14 +155,5 @@
 }
 
 .posts-block {
-  margin-bottom: 115px;
-  margin-bottom: 1px;
-}
-
-.profile-images {
-  margin-top: 7px;
-  img {
-    border-radius: 10px;
-    box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
-  }
+  margin-bottom: 92px;
 }

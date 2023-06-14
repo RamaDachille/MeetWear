@@ -80,7 +80,7 @@
     <div class="profile-container" data-slider2-target="share">
       <% @posts.where(post_type: 'Share').each do |post| %>
         <div class="profile-images">
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+          <%= cl_image_tag post.photo.key, height: 500, width: 400, crop: :fill if post.photo.key%>
         </div>
       <% end %>
     </div>
@@ -89,7 +89,7 @@
     <div class="profile-container d-none" data-slider2-target="ask">
       <% @posts.where(post_type: 'Ask').each do |post| %>
         <div class="profile-images">
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+          <%= cl_image_tag post.photo.key, height: 500, width: 400, crop: :fill if post.photo.key%>
         </div>
       <% end %>
     </div>

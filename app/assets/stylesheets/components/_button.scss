@@ -1,0 +1,28 @@
+.low-text-feedback{
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.icon {
+  position: absolute;
+  top: 19px;
+  left: 247px
+}
+.helpful {
+  // padding: 8px 34px;
+  padding: 10px 15px 10px 34px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  float: right;
+  margin-bottom: 10px;
+  margin-top: -30px;
+  margin-right: 8px;
+  &:hover {
+    color: black;
+    background-color: rgb(219, 219, 219);
+    text-decoration: none;
+  }
+}

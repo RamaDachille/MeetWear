@@ -27,55 +27,54 @@
   justify-content: center;
   width: 100%;
 
+  .avatar {
+    position: absolute;
+    width: 100px;
+    /* height: 427px; */
+    top: 30px;
 
-.avatar {
-  position: absolute;
-  width: 100px;
-  height: 427px;
-img{
-  border-radius: 50%;
-  width: 110px;
-  height: 96px;
-}
-}
+    img {
+      border-radius: 50%;
+      width: 110px;
+      height: 96px;
+    }
+  }
 
-.banner{
-  margin: -20px;
-}
+  .banner {
+    margin: -20px;
+  }
 
-
-.un-and-bio {
-  position: relative;
-  justify-content: space-between;
-
-  top: -98px;
-  right: 28px;
-
-  .username, .bio {
+  .un-and-bio {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
 
-  .username {
-  position: absolute;
-  // width: 47px;
-  height: 13px;
-  font-family: $my-font;
-  font-size: 18px;
-  }
+    top: -98px;
+    right: 28px;
 
-  .bio {
-  position: absolute;
-  // width: 54px;
-  height: 45px;
-  font-family: $my-font;
-  font-size: 13px;
+    .username, .bio {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .username {
+    margin-top: -131px;
+    height: 13px;
+    font-family: $my-font;
+    font-size: 18px;
+    }
+
+    .bio {
+    margin-top: 16px;
+    height: 45px;
+    font-family: $my-font;
+    font-size: 13px;
+    }
   }
 }
-}
-
-
 
 .profile-container {
   display: grid;
@@ -99,6 +98,7 @@ img{
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .card-profile-s {
   display: flex;
   justify-content: space-between;
@@ -106,8 +106,8 @@ img{
   background-color: white;
   border-radius: 20px;
   height: 64px;
-  margin-left: 13px;
-  margin-right: 12px;
+  margin-left: -4px;
+  margin-right: -12px;
   box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
 
   .followers, .following, .post-c {
@@ -120,9 +120,9 @@ img{
     font-size: 15px;
   }
 
-  .followers{
+  .followers {
     padding-left: 24px;
-    padding-right: 10px;
+    padding-right: -13px;
   }
 
   .following{
@@ -132,7 +132,7 @@ img{
 
   .post-c{
     padding-right: 29px;
-    padding-left: 43px;
+    padding-left: 30px;
   }
 
   p {
@@ -150,4 +150,13 @@ img{
 
 .posts-block {
   margin-bottom: 115px;
+  margin-bottom: 1px;
+}
+
+.profile-images {
+  margin-top: 7px;
+  img {
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
+  }
 }

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index show create new]
     resources :saved_posts, only: %i[create destroy]
     resources :likes, only: %i[create destroy]
+    get 'like', to: 'posts#like'
+    get 'save', to: 'posts#save'
   end
   resources :comments, only: %i[edit destroy] do
     get 'like', to: 'comments#like'

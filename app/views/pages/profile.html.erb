@@ -1,37 +1,73 @@
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+
 <div data-controller="slider2" id="slider">
 <%# PROFILE INFO %>
+<div class ="arrow-box">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left arrow"></i>
+  <% end %>
+</div>
+
+<div class ="dots-box">
+<%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+  <i class="fa-solid fa-ellipsis dots"></i>
+<% end %>
+</div>
 
   <%# PROFILE INFO %>
 
+ <div class="top-profile-content">
+  <div class= "banner">
   <%= image_tag 'banner.png', class: "banner-pic" %>
+  </div>
+ </div>
 
   <div class= "user-info">
     <%# current_user.id == params[:id] %>
     <%# profile_user = User.find(current_user.id) %>
     <% profile_user = User.find(params[:id]) %>
     <%# profile_user = User.find(5) %>
-    <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
-    <p><strong><%= profile_user.user_name%></strong></p>
+      <div class="top-profile-content">
+        <div class="avatar">
+          <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
+        </div>
+
+  <div class="un-and-bio">
+    <div class="username row justify-content-center mt2">
+      <p style="color:white;"><strong><%= profile_user.user_name%></strong></p>
+    </div>
+      <div class="bio row justify-content-center">
+        <span style="color:white;"> Biography</span>
+      </div>
   </div>
 
+
+</div>
+
   <%# POST/ FOLLOWERS/ FOLLOWING TAB %>
+
+
   <div class= "card-profile-s">
     <div class="post-c">
       <% share = @posts.where(post_type: 'Share').count  %>
       <% ask = @posts.where(post_type: 'Ask').count %>
       <% saved = 0 %>
-      <p> <%= sum = share + ask %> Posts</p>
+      <p> <%= sum = share + ask %> </p>
+      <span> &nbsp;&nbsp;Posts&nbsp;&nbsp;</span>
     </div>
 
     <div class= "followers">
 
-      <p><%= random_number = rand(50..2000) %> Followers</p>
+      <p><%= random_number = rand(50..2000) %></p>
+      <span>Followers</span>
     </div>
 
     <div class= "following">
-      <p><%= random_number = rand(100..2000) %> Follwing</p>
+      <p><%= random_number = rand(100..2000) %></p>
+      <span>Following</span>
     </div>
+
+
+
 
   </div>
   <%= render "shared/slider_profile" %>

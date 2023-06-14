@@ -1,3 +1,82 @@
+.arrow-box{
+  position: relative;
+  .arrow {
+    color: white;
+    position: absolute;
+    font-size: 23px;
+    top: 13px;
+    z-index: 10;
+  }
+}
+
+.dots-box{
+  position: relative;
+  .dots {
+    color: white;
+    position: absolute;
+    font-size: 27px;
+    top: 9px;
+    z-index: 10;
+    right: -2px;
+  }
+}
+
+.top-profile-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+
+.avatar {
+  position: absolute;
+  width: 100px;
+  height: 427px;
+img{
+  border-radius: 50%;
+  width: 110px;
+  height: 96px;
+}
+}
+
+.banner{
+  margin: -20px;
+}
+
+
+.un-and-bio {
+  position: relative;
+  justify-content: space-between;
+
+  top: -98px;
+  right: 28px;
+
+  .username, .bio {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .username {
+  position: absolute;
+  // width: 47px;
+  height: 13px;
+  font-family: $my-font;
+  font-size: 18px;
+  }
+
+  .bio {
+  position: absolute;
+  // width: 54px;
+  height: 45px;
+  font-family: $my-font;
+  font-size: 13px;
+  }
+}
+}
+
+
+
 .profile-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -15,31 +94,58 @@
 }
 
 .user-info {
-  margin-top: 10px;
+  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 .card-profile-s {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 20px;
+  height: 64px;
+  margin-left: 13px;
+  margin-right: 12px;
+  box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
 
-}
+  .followers, .following, .post-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // padding-left: 33px;
+    // padding-right: 27px;
+    font-size: 15px;
+  }
 
-.post-c {
-  display: flex;
-  justify-content: center;
-}
+  .followers{
+    padding-left: 24px;
+    padding-right: 10px;
+  }
 
-.followers {
-  display: flex;
-  align-items: center;
-}
+  .following{
+    padding-left: 41px;
+    padding-right: 38px;
+  }
 
-.following {
-  display: flex;
-  align-items: center;
+  .post-c{
+    padding-right: 29px;
+    padding-left: 43px;
+  }
+
+  p {
+    display: inline;
+    color: black;
+  }
+
+  span {
+    display: inline;
+    color: grey;
+    margin-top: -17px;
+    font-family: $my-font;
+  }
 }
 
 .posts-block {

@@ -6,21 +6,21 @@
 
 
   p{
-    font-size: 19px;
+    // font-size: 19px;
     color: black;
     font-family: $my-font;
     margin-left: 11px;
   }
 
   i{
-    font-size: 25px;
+    // font-size: 25px;
     margin-right: 5px;
     margin-top: 2px;
   }
 }
 
 #show-feed{
-  background-color: white;
+  background-color: #F5F5F5;
   font-family: $my-font;
 
 .form-whole{
@@ -34,21 +34,27 @@
 // }
 
 .butters {
-  background: linear-gradient(to right, #9C448C, #661A58);
+  background: linear-gradient(90deg, #ae68dd, #7b41a0, #622184, #501768);
   color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   border: none;
-  height: 47px;
+  height: 40px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  font-size: 17px;
-  font-family: $my-font;
+  // font-size: 17px;
+  // font-family: $my-font;
   padding: 0px 111px;
+}
+
+.butters:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
 }
 
 .buttys-container{
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 
@@ -57,6 +63,7 @@
   border-radius: 12px 12px 0px 0px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 8px;
+  margin-top: 10px
 }
 
 
@@ -83,6 +90,7 @@
   .on-top {
     font-size: 15px;
     color: black;
+    margin-bottom: 25px;
   }
 
   .on-bottom {
@@ -237,4 +245,10 @@ align-items: center;
   color: rgb(112, 112, 112);
 }
 
+}
+
+#feedback_feedback {
+  border-radius: 10px;
+  background-color: white;
+  border: none;
 }

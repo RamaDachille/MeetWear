@@ -57,7 +57,7 @@ joanna = User.new(email: "joanna@example.com",
                   password: 123456,
                   first_name: "Joanna",
                   last_name: "Pink",
-                  user_name: "joanna_pink")
+                  user_name: "Joanna_pink")
 joanna.save!
 joanna = create_pics("https://images.unsplash.com/photo-1521198022873-af0f772bf653?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1737&q=80", joanna.id, joanna)
 joanna.save!
@@ -66,7 +66,7 @@ maria = User.new(email: "maria@example.com",
   password: 123456,
   first_name: "Maria",
   last_name: "Green",
-  user_name: "mgreen")
+  user_name: "Mgreen")
 maria.save!
 maria = create_pics("https://images.unsplash.com/photo-1530653535919-df7cc2bee192?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80", maria.id, maria)
 maria.save!
@@ -75,7 +75,7 @@ carolina = User.new(email: "carolina@example.com",
   password: 123456,
   first_name: "Carolina",
   last_name: "Blue",
-  user_name: "bluecarolina")
+  user_name: "Bluecarolina")
 carolina.save!
 carolina = create_pics("https://images.unsplash.com/photo-1554423443-d9b73c9b7ced?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80", carolina.id, carolina)
 carolina.save!
@@ -98,25 +98,25 @@ pics = [
 
 usernames = [
   "FashionistaQueen",
-  "style_guru",
+  "Style_Guru",
   "TrendsetterChic",
-  "fashionobsessed",
+  "FashionObsessed",
   "HauteCoutureDiva",
-  "chicAndFabulous",
+  "ChicAndFabulous",
   "FashionForward",
   "CoutureAddict",
-  "runway_princess",
+  "Runway_Princess",
   "FashionIconic",
   "StylishSiren",
   "GlamFashionista",
-  "chic_vogue",
+  "Chic_Vogue",
   "TrendyStyleStar",
   "StyleMaven",
-  "glamourista",
+  "Glamourista",
   "Fashion.Seeker",
-  "style_quest",
+  "Style_Quest",
   "Trend.Explorer",
-  "fashion.curious",
+  "Fashion.Curious",
   "Outfit_Inquirer",
   "Style_Enthusiast",
   "Fashion_Explorer",
@@ -194,8 +194,8 @@ puts "creating Posts Share"
                             'glamorous', 'smart casual', 'bohemian'].sample,
                   occasion: ['party', 'business meeting', 'casual outing', 'wedding', 'formal event', 'workout', 'date night',
                             'vacation', 'interview', 'girl night'].sample,
-                  brand_tag: ['canada goose', 'a.p.c.', 'prada', 'levis', 'nike', 'dickies', 'adidas', 'burbery', 'fred perry',
-                              'arket'].sample,
+                  brand_tag: ['Moncler', 'A.P.C.', 'Stussy', 'Lee', 'Nike', 'Dickies', 'Adidas', 'Burbery', 'Fred Perry',
+                              'COS'].sample,
                   user: User.all.sample,
                   size_rating: [1,2,3,4,5].sample)
 

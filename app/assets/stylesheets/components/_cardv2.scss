@@ -1,5 +1,5 @@
 #ask-cards{
-  margin-top: 20px;
+  // margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -35,7 +35,7 @@
 .round-button {
   position: absolute;
   border-radius: 20px;
-  background: linear-gradient(90deg, #ae68dd, #7b41a0, #622184, #501768);
+  background: #531253;
   color: white;
   font-size: 13px;
   padding: 8px 25px;
@@ -94,7 +94,7 @@ padding-right: 1px;
 position: absolute;
 width: 60px;
 height: 60px;
-right: 295px;
+right: 291px;
 top: -27px;
 border-radius: 50px;
 z-index: 2;
@@ -103,7 +103,7 @@ object-fit: cover;
 }
 
 .username-top {
-border-radius: 4px;
+border-radius: 99px;
 background-color: #FFFFFF;
 display: flex;
 flex-direction: row;

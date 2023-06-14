@@ -36,18 +36,9 @@
     <meta name="theme-color" content="#ffffff">
   </head>
 
-  <% if params[:controller] == 'posts' && params[:action] == 'show' %>
-    <body style="background-color:white">
-      <%= yield %>
-    </body>
-    <% else %>
-    <body>
-      <%= yield %>
-    </body>
-<% end %>
-
-
-
-
+  <% style = "background-color:F5F5F5"  if params[:controller] == 'posts' && params[:action] == 'show' %>
+  <body style="<%= style %>">
+    <%= yield %>
+  </body>
 
 </html>

@@ -13,15 +13,19 @@
 
 .add-image-card {
   height: 300px;
-  border-radius: 5%;
+  border-radius: 12px 12px 0px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 20px;
-  background: linear-gradient(-60deg, white, #ae68dd, #7b41a0, #622184);
+  background: linear-gradient(-60deg, #C3C3E6, #531253);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+
+
+
 
   .plus {
     color: white;
@@ -84,7 +88,7 @@
 
 .create-post-button {
   width: 100% !important;
-  background: linear-gradient(90deg, #ae68dd, #7b41a0, #622184, #501768);
+  background: #531253;
   color: white;
   border-radius: 25px !important;
   border: none;
@@ -156,8 +160,8 @@
 }
 
 .form-check-input:checked {
-  background-color: #622184;
-  border-color: #622184;
+  background-color: #531253;
+  border-color: #531253;
 }
 
 .form-check-input:focus {

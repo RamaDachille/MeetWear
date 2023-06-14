@@ -57,11 +57,11 @@ class PostsController < ApplicationController
 
   def save
     @post = Post.find(params[:post_id])
-    @save_post = SavePost.find_by(post: @post, user: current_user)
+    @save_post = SavedPost.find_by(post: @post, user: current_user)
     if @save_post
       @save_post.destroy
     else
-      SavePost.create(post: @post, user: current_user)
+      SavedPost.create(post: @post, user: current_user)
     end
   end
 

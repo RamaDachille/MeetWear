@@ -97,7 +97,7 @@
     <%# OWNERS SAVED POSTS %>
     <div class="profile-container d-none" data-slider2-target="saved"  >
       <% if current_user.id == params[:id].to_i %>
-        <% SavedPost.where(user_id: current_user).each do |saved| %>
+        <% SavedPost.where(user_id: current_user.id).each do |saved|%>
           <%# <p><% user = Post.find(saved.post_id).user_id %><%#= User.find(user).user_name %><%#</p> %>
           <div class="profile-images">
             <%= cl_image_tag Post.find(saved.post_id).photo.key, height: 300, width: 400, crop: :fill if Post.find(saved.post_id).photo.key %>

@@ -23,8 +23,10 @@
           <% end %>
         <% elsif notification.message == "feedback" %>
           <% feedback = Feedback.find_by(post_id: notification.post_id) %>
-          <p><strong><%= User.find(notification.user_id).user_name %></strong> has provided <strong>feedback</strong> on your post with an overall rating of <strong><%= feedback.overall_style_rating %></strong>⭐</p>
-          <%= link_to "View Feedback", post_path(notification.post_id) %>
+          <p><strong><%= User.find(notification.user_id).user_name %></strong> has provided <strong>feedback</strong> on your post with an overall rating of <strong><%= feedback.overall_style_rating %></strong> <% feedback.overall_style_rating.times do %>⭐<% end %></strong></p>
+          <%= link_to post_path(notification.post_id) do %>
+            <i class="fa-regular fa-eye" style="color:#A4B0F5"></i>
+          <% end %>
       <% end %>
       <p><%= time_ago_in_words(notification.created_at) %> ago</p>
     </div>

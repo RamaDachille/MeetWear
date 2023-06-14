@@ -16,11 +16,10 @@
     background-color: #FFFFFF;
     width: 100%;
     position: fixed;
-    top: -30px;
-    height: 60px;
+    top: -27px;
+    height: 50px;
     left: -3px;
     z-index: 999;
-
   }
 
   .left {
@@ -32,6 +31,8 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 8px;
+    margin-left: -110px;
   }
 
   .user-info {
@@ -151,7 +152,7 @@
 
   }
 .btn-submit {
-  color: #531253;
+  color: #A4B0F5;
   box-shadow: none;
   background: #FFFFFF;
   border: none;
@@ -165,7 +166,7 @@
 
 
  .fa-star::before {
-  color: $purple;
+  color: #A4B0F5;
 
  }
  .icon-text {

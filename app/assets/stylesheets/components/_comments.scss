@@ -99,6 +99,10 @@
     }
 
     .content {
+      margin-left: 140px;
+    }
+
+    .content2 {
       padding-left: 10px;
       margin-top: 10px;
       color: black;
@@ -159,4 +163,23 @@
   margin-bottom: 45px;
  }
 
+
+ .fa-star::before {
+  color: $purple;
+
+ }
+ .icon-text {
+  display: flex;
+  gap: 1px;
+  color: grey;
+  font-family: $my-font;
+ }
+ .time_likes {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+ }
+ .comment_l {
+  width: 88%;
+ }
 }

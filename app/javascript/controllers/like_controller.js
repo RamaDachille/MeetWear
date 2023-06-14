@@ -13,8 +13,8 @@ export default class extends Controller {
     const url = `${window.location.origin}/comments/${this.element.dataset.id}/like`
     event.currentTarget.classList.toggle("fa-solid")
     event.currentTarget.classList.toggle("fa-regular")
-    const num = Number(this.counterTarget.innerText)
-    this.counterTarget.innerText = event.currentTarget.classList.contains("fa-solid") ? num + 1 : num - 1
+    const num = +this.counterTarget.innerText
+    this.counterTarget.innerText = (event.currentTarget.classList.contains("fa-solid") ? num + 1 : num - 1 )
     fetch(url)
   }
 }

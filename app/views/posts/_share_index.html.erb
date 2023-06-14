@@ -57,14 +57,15 @@
                 </div>
               </div>
 
-              <div>
-                <% user = User.find(post.user_id) %>
-                <%= cl_image_tag user.photo.key, class: "profile-pic" if user.photo.key%>
-              </div>
-
-              <div class="username-top">
-                <p><strong><%=  post.user.user_name %></strong></p>
-              </div>
+              <%= link_to profile_path(post.user_id) do %>
+                <div>
+                  <% user = User.find(post.user_id) %>
+                  <%= cl_image_tag user.photo.key, class: "profile-pic" if user.photo.key%>
+                </div>
+                <div class="username-top">
+                  <p><strong><%=  post.user.user_name %></strong></p>
+                </div>
+              <% end %>
 
               <div>
                 <%= cl_image_tag post.photo.key, class: "card-img" if post.photo.key %>

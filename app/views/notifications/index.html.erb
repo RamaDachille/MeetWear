@@ -6,14 +6,21 @@
 </div>
 
 <hr>
+
 <% @notifications.order(created_at: :desc).each do |notification| %>
   <% post = Post.find(notification.post_id) %>
   <% if post.user_id == current_user.id %>
     <div class="notification-card">
-      <p><strong><%= User.find(notification.user_id).user_name %></strong> has <strong>commented</strong> on your post.</p>
+      <% if notification.message == "comment" %>
+        <p><strong><%= User.find(notification.user_id).user_name %></strong> has <strong>commented</strong> on your post.</p>
+        <%= link_to "View Comment", post_comments_path(notification.post_id) %>
+      <% elsif notification.message == "feedback" %>
+        <% feedback = Feedback.find_by(post_id: notification.post_id) %>
+        <p><strong><%= User.find(notification.user_id).user_name %></strong> has provided <strong>feedback</strong> on your post with an overall rating of <strong><%= feedback.overall_style_rating %></strong>.</p>
+        <%= link_to "View Feedback", post_path(notification.post_id) %>
+      <% end %>
       <p><%= time_ago_in_words(notification.created_at) %> ago</p>
     </div>
-  <% else %>
   <% end %>
   <hr>
 <% end %>

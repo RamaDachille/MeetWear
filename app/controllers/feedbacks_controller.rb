@@ -5,6 +5,7 @@ class FeedbacksController < ApplicationController
     @feedback.post = @post
     @feedback.user = current_user
     if @feedback.save!
+      Notification.create(user: current_user, post: @post, message: "feedback")
       redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity

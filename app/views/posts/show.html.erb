@@ -39,8 +39,9 @@
 <% if @post.post_type == "Ask" %>
   <div class= "ask">
 
+<% post_owner = current_user == @post.user_id%>
 <% no_feedback = @post.feedbacks.where(user_id: current_user.id).count == 0 %>
-<% if no_feedback %>
+<% if no_feedback || post_owner %>
   <div class= "container">
       <div>
         <div class="text-center">

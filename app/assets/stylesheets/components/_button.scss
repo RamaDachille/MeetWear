@@ -14,16 +14,17 @@
   background-color: white;
   margin-right: 13px;
   &:hover {
-    color: black;
     background-color: rgb(219, 219, 219);
+  }
+  a:hover {
+    color: black;
     text-decoration: none;
   }
 }
-
 .icon-helpful {
   margin: 0 5px;
 }
 .helpful {
-  text-decoration: none;
+  text-decoration: none !important;
   color: black;
 }

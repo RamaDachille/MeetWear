@@ -1,37 +1,76 @@
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+
 <div data-controller="slider2" id="slider">
 <%# PROFILE INFO %>
+<div class ="arrow-box">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-arrow-left arrow"></i>
+  <% end %>
+</div>
+
+<div class ="dots-box">
+<%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+  <i class="fa-solid fa-ellipsis dots"></i>
+<% end %>
+</div>
 
   <%# PROFILE INFO %>
 
+ <div class="top-profile-content">
+  <div class= "banner">
   <%= image_tag 'banner.png', class: "banner-pic" %>
+  </div>
+ </div>
 
   <div class= "user-info">
     <%# current_user.id == params[:id] %>
     <%# profile_user = User.find(current_user.id) %>
     <% profile_user = User.find(params[:id]) %>
     <%# profile_user = User.find(5) %>
-    <%= cl_image_tag profile_user.photo.key, height: 300, width: 400, crop: :fill if profile_user.photo.key%>
-    <p><strong><%= profile_user.user_name%></strong></p>
+      <div class="top-profile-content">
+
+        <div class="pfp">
+          <%= cl_image_tag profile_user.photo.key, height: 100, width: 100, crop: :fill if profile_user.photo.key%>
+        </div>
+
+        <div class="un-and-bio">
+
+          <div class="username">
+            <p style="color:white;"><strong><%= profile_user.user_name%></strong></p>
+          </div>
+
+          <div class="bio">
+            <span style="color:white;"> Biography</span>
+          </div>
+
+        </div>
+      </div>
   </div>
 
   <%# POST/ FOLLOWERS/ FOLLOWING TAB %>
+
+
   <div class= "card-profile-s">
     <div class="post-c">
       <% share = @posts.where(post_type: 'Share').count  %>
       <% ask = @posts.where(post_type: 'Ask').count %>
       <% saved = 0 %>
-      <p> <%= sum = share + ask %> Posts</p>
+      <p> <%= sum = share + ask %> </p>
+      <span> &nbsp;&nbsp;Posts&nbsp;&nbsp;</span>
     </div>
 
     <div class= "followers">
 
-      <p><%= random_number = rand(50..2000) %> Followers</p>
+      <p><%= random_number = rand(50..2000) %></p>
+      <span>Followers</span>
     </div>
 
     <div class= "following">
-      <p><%= random_number = rand(100..2000) %> Follwing</p>
+      <p><%= random_number = rand(100..2000) %></p>
+      <span>Following</span>
     </div>
+
+
+
 
   </div>
   <%= render "shared/slider_profile" %>
@@ -41,7 +80,7 @@
     <div class="profile-container" data-slider2-target="share">
       <% @posts.where(post_type: 'Share').each do |post| %>
         <div class="profile-images">
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+          <%= cl_image_tag post.photo.key, height: 500, width: 400, crop: :fill if post.photo.key%>
         </div>
       <% end %>
     </div>
@@ -50,7 +89,7 @@
     <div class="profile-container d-none" data-slider2-target="ask">
       <% @posts.where(post_type: 'Ask').each do |post| %>
         <div class="profile-images">
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill if post.photo.key%>
+          <%= cl_image_tag post.photo.key, height: 500, width: 400, crop: :fill if post.photo.key%>
         </div>
       <% end %>
     </div>
@@ -58,10 +97,10 @@
     <%# OWNERS SAVED POSTS %>
     <div class="profile-container d-none" data-slider2-target="saved"  >
       <% if current_user.id == params[:id].to_i %>
-        <% SavedPost.where(user_id: current_user).each do |saved| %>
+        <% SavedPost.where(user_id: current_user.id).each do |saved|%>
           <%# <p><% user = Post.find(saved.post_id).user_id %><%#= User.find(user).user_name %><%#</p> %>
           <div class="profile-images">
-            <%= cl_image_tag Post.find(saved.post_id).photo.key, height: 300, width: 400, crop: :fill if Post.find(saved.post_id).photo.key %>
+            <%= cl_image_tag Post.find(saved.post_id).photo.key, height: 500, width: 400, crop: :fill if Post.find(saved.post_id).photo.key %>
           </div>
         <% end %>
       <% else %>

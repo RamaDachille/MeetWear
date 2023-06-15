@@ -1,3 +1,83 @@
+.arrow-box{
+  position: relative;
+  .arrow {
+    color: white;
+    position: absolute;
+    font-size: 23px;
+    top: 13px;
+    z-index: 10;
+  }
+}
+
+.dots-box{
+  position: relative;
+  .dots {
+    color: white;
+    position: absolute;
+    font-size: 27px;
+    top: 9px;
+    z-index: 10;
+    right: -2px;
+  }
+}
+
+.top-profile-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .pfp {
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 96px;
+    border-radius: 50%;
+    right: 146px;
+    top: 32px;
+    // img {
+    //   width: 100px;
+    //   height: 100px;
+
+    // }
+  }
+
+  .banner {
+    margin: -20px;
+  }
+
+  .un-and-bio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    top: -98px;
+    right: 28px;
+
+    .username, .bio {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .username {
+    margin-top: -131px;
+    height: 13px;
+    font-family: $my-font;
+    font-size: 18px;
+    }
+
+    .bio {
+    margin-top: 16px;
+    height: 45px;
+    font-family: $my-font;
+    font-size: 13px;
+    }
+  }
+}
+
 .profile-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -9,39 +89,71 @@
   align-items: flex-start;
 }
 
-.profile-images img {
-  width: 100%;
-  height: auto;
+.profile-images {
+  margin-top: 7px;
+  img {
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
+  }
 }
+
 
 .user-info {
-  margin-top: 10px;
+  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .card-profile-s {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 20px;
+  height: 64px;
+  margin-left: -4px;
+  margin-right: -6px;
+  box-shadow: 0 1px 0 rgba(135, 135, 135, 0.15), 0 6px 12px 0 rgba(135, 135, 135, 0.15);
 
-}
+  .followers, .following, .post-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // padding-left: 33px;
+    // padding-right: 27px;
+    font-size: 15px;
+  }
 
-.post-c {
-  display: flex;
-  justify-content: center;
-}
+  .followers {
+    padding-left: 16px;
+    padding-right: -13px;
+  }
 
-.followers {
-  display: flex;
-  align-items: center;
-}
+  .following{
+    padding-left: 41px;
+    padding-right: 30px;
+  }
 
-.following {
-  display: flex;
-  align-items: center;
+  .post-c{
+    padding-right: 29px;
+    padding-left: 38px;
+  }
+
+  p {
+    display: inline;
+    color: black;
+  }
+
+  span {
+    display: inline;
+    color: grey;
+    margin-top: -17px;
+    font-family: $my-font;
+  }
 }
 
 .posts-block {
-  margin-bottom: 115px;
+  margin-bottom: 92px;
 }

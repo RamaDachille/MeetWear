@@ -2,7 +2,8 @@
     <div class="card-surrounding">
 
       <div class="pfp-feedback-centering">
-        <%= image_tag 'avatar.png', class: "profile-pic" %>
+        <%# <%= image_tag 'avatar.png', class: "profile-pic" %>
+        <%= cl_image_tag feedback.user.photo.key, class: "profile-pic" if feedback.user.photo.key %>
         <p><strong><%= User.find(feedback.user_id).user_name%></strong> </p>
       </div>
 
@@ -16,7 +17,7 @@
 
     <div class="low-text-feedback">
       <p><%= time_ago_in_words(feedback.created_at) %> ago</p>
-      <i class="fa-regular fa-thumbs-up icon"></i>
+      <i class="fa-regular fa-thumbs-up icon-helpful"></i>
       <a class="helpful">Helpful</a>
     </div>
   </div>

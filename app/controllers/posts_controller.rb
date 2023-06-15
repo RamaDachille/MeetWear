@@ -45,6 +45,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:post_id])
+    @like = Like.find_by(post: @post, user: current_user)
+    if @like
+      @like.destroy
+    else
+      Like.create(post: @post, user: current_user)
+    end
+  end
+
+  def save
+    @post = Post.find(params[:post_id])
+    @save_post = SavedPost.find_by(post: @post, user: current_user)
+    if @save_post
+      @save_post.destroy
+    else
+      SavedPost.create(post: @post, user: current_user)
+    end
+  end
+
   private
 
   def post_params

@@ -73,7 +73,7 @@
               <p><strong><%=  post.user.user_name %></strong></p>
             </div>
             <div class="medium-t">
-              <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span> <span data-accordion-target="hiddenText" class="d-none"><%= post.description[0...post.description.length]%></span> </p>
+              <p><%= post.description[0...50] %> <span class="more" data-action="click->accordion#anotherAcordion">...more</span> <span data-accordion-target="hiddenText" class="d-none"><%= post.description[50...post.description.length]%></span> </p>
               <p class="d-none" data-accordion-target="hiddenTag"><strong>Category: </strong><%= post.category %> </p>
               <p class="d-none" data-accordion-target="hiddenTag"><strong>Occasion: </strong><%= post.occasion %> </p>
             </div>

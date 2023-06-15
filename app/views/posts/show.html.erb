@@ -21,7 +21,11 @@
   <div class="on-top">
     <p><strong>Description: </strong><%= @post.description %></p>
     <p><strong>Occasion: </strong><%= @post.occasion %></p>
-    <p><strong>Brands: </strong><%= @post.brand_tag %></p>
+    <p><strong>Brands: &nbsp </strong>
+    <% @post.brand_tag.split(',').each do |brand| %>
+      <span class="brand-tag"><%= brand %></span>
+      <% end %>
+    </p>
   </div>
 
   <%# <div class="on-bottom"> %>

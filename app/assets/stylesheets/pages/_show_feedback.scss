@@ -34,7 +34,7 @@
 // }
 
 .butters {
-  background: #A4B0F5;
+  background: linear-gradient(90deg, #c5cbf2, #9faaef, #6d7fe3);
   color: white;
   border-radius: 25px;
   border: none;
@@ -42,7 +42,8 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   // font-size: 17px;
   // font-family: $my-font;
-  padding: 0px 111px;
+  padding: 0px 145px;
+  text-shadow: none;
 }
 
 .butters:hover {

@@ -252,3 +252,14 @@ align-items: center;
   background-color: white;
   border: none;
 }
+
+.brand-tag {
+  display: inline-block;
+  background-color: white;
+  color: #878787;
+  padding: 4px 8px;
+  margin-right: 5px;
+  margin-bottom: 7px;
+  // border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+}

@@ -1,6 +1,9 @@
 .low-text-feedback{
-  position: relative;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 15px;
 }
 
 .icon-helpful {
@@ -15,14 +18,19 @@
   border: 1px solid grey;
   color: black;
   background-color: white;
-  text-decoration: none;
-  float: right;
-  margin-bottom: 10px;
-  margin-top: -30px;
-  margin-right: 8px;
+  margin-right: 13px;
   &:hover {
-    color: black;
     background-color: rgb(219, 219, 219);
+  }
+  a:hover {
+    color: black;
     text-decoration: none;
   }
+}
+.icon-helpful {
+  margin: 0 5px;
+}
+.helpful {
+  text-decoration: none !important;
+  color: black;
 }

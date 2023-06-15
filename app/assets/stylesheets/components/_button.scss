@@ -1,28 +1,29 @@
 .low-text-feedback{
-  position: relative;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 15px;
 }
 
-.icon {
-  position: absolute;
-  top: 19px;
-  left: 232px
-}
-.helpful {
-  // padding: 8px 34px;
-  padding: 10px 15px 10px 34px;
+.custom-button{
+  padding: 10px 15px;
   border-radius: 20px;
   border: 1px solid grey;
   color: black;
   background-color: white;
-  text-decoration: none;
-  float: right;
-  margin-bottom: 10px;
-  margin-top: -30px;
-  margin-right: 8px;
+  margin-right: 13px;
   &:hover {
     color: black;
     background-color: rgb(219, 219, 219);
     text-decoration: none;
   }
+}
+
+.icon-helpful {
+  margin: 0 5px;
+}
+.helpful {
+  text-decoration: none;
+  color: black;
 }

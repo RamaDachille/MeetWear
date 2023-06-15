@@ -5,16 +5,16 @@
   justify-content: space-between;
   align-items: center;
   .logo {
-    margin-left: -10px;
-    margin-top: 10px;
+    margin-left: -8px;
+    margin-top: 20px;
     z-index: 9999;
     color: white;
-    font-family: $logo-font;
+    font-family: $my-font;
   }
   .logotyp {
     color: white;
-    font-family: $logo-font;
-    font-size: 35px;
+    font-family: $my-font;
+    font-size: 25px;
     margin-top: 12px;
     margin-left: 4px;
   }
@@ -24,7 +24,7 @@
     text-decoration: none;
     color: white;
     font-size: 20px;
-    left: -51px;
+    left: -52px;
   }
   .icon-message {
     position: absolute;
@@ -32,7 +32,7 @@
     color: white;
     font-size: 20px;
     margin-left: 10px;
-    left: -21px;;
+    left: -25px;;
   }
   .icon-bell::before {
     content: "" !important;

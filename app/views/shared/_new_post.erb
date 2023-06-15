@@ -56,7 +56,7 @@
     <%= f.input :description, input_html: { maxlength: 300 } %>
     <div class="checkbox-wrapper">
       <%= f.input :size_rating,  wrapper_html: { class: "stupid-box" }, :inline_label => false, input_html: { style: "padding: 20px" }, label: false %>
-      <%= f.label :size_rating, 'Feeback for fit' %>
+      <%= f.label :size_rating, 'Allow feedback on size' %>
     </div>
     <%= f.submit :submit, class: "create-post-button", data: {postform_target: "button"} %>
   <% end %>

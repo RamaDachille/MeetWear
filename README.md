@@ -1,1 +1,10 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# MeetWear
+Social media app that enables users to share their outfits or seek fashion advice.
+
+[meetwear.com](https://meetwear.me/)
+
+### Features
+Account creation, post creation, comments, feedback ratings, likes, upvotes, saves, and notifications.
+
+### Technologies
+MVC, JavaScript, Stimulus.js, Ruby, Ruby on Rails, HTML, SCSS, PostgreSQL, Heroku, APIs

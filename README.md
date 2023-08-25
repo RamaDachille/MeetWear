@@ -1,5 +1,5 @@
 # MeetWear 
-Social media app that enables users to share their outfits or seek fashion advice.
+Social media app that enables users to share their outfits or seek fashion advice. 
 
 [meetwear.com](https://meetwear.me/)
 

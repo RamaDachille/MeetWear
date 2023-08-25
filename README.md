@@ -2,7 +2,7 @@
 Social media app that enables users to share their outfits or seek fashion advice. 
  
 [meetwear.com](https://meetwear.me/) 
-
+ 
 ### Features
 Account creation, post creation, comments, feedback ratings, likes, upvotes, saves, and notifications.
 

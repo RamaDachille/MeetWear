@@ -8,6 +8,6 @@ Website Video on [Dribble](https://dribbble.com/shots/22382110-MeetWear-Social-M
 ### Features  
 Account creation, post creation, comments, feedback ratings, likes, upvotes, saves, and notifications. 
  
-### Technologies 
+### Technologies  
 MVC, JavaScript, Stimulus.js, Ruby, Ruby on Rails, HTML, SCSS, PostgreSQL, Heroku, APIs  
   

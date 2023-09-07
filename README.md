@@ -11,3 +11,4 @@ Account creation, post creation, comments, feedback ratings, likes, upvotes, sav
 ### Technologies   
 MVC, JavaScript, Stimulus.js, Ruby, Ruby on Rails, HTML, SCSS, PostgreSQL, Heroku, APIs  
    
+ 

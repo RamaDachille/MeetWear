@@ -5,7 +5,7 @@ Due to time constraints, this link only works on mobile: [meetwear.com](https://
   
 Website Video on [Dribbble](https://dribbble.com/shots/22382110-MeetWear-Social-Media-App)  
       
-### Features     
+### Features      
 Account creation, post creation, comments, feedback ratings, likes, upvotes, saves, and notifications.  
     
 ### Technologies    
